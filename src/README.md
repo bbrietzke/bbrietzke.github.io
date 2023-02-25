@@ -1,4 +1,4 @@
-# My Home Page
+# Introductions
  
 So this is my collection of thoughts, ideas and craziness documented for everyone to see.  I have a lot of different interests that I cycle through irregularly.  It's hard to keep track of the bits and pieces so I figure I should write some of this down.
 
