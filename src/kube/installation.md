@@ -7,18 +7,14 @@ These are my notes on installing [Kubernetes](https://kubernetes.io/).  They wor
 Almost all of the heavy lifting is done through [Ansible](https://www.ansible.com/).  That gets the software on the server, but doesn't do much in the way of 
 configuration, which is why I'm writting this up. You can find the playbooks and documents [over here](https://bbrietzke.github.io/ansible/). 
 
-I had most of this infrastructure running on Raspberry Pi's in the most recent past, so the roles take care of handling all the hardwork of making sure things
-will work on RPIv4 machines.
-
-The current config has three machines, Basil, Lavender and Catnip ( yes, herbs because why not ).  Basil is the control-plane, while the other two are
-workers.  Basil and Lavender are [cheap machines](https://www.amazon.com/dp/B0B2D8BZKP?psc=1&ref=ppx_yo2ov_dt_b_product_details) while Catnip is an old 
-Macbook Pro I had collecting dust.  Regardless of the hardware, this should work for most machines.
+The current config has three machines, Basil, Lavender and Sage ( yes, herbs because why not ).  Basil is the control-plane, while the other two are
+workers.  They are [cheap machines](https://www.amazon.com/dp/B0B2D8BZKP?psc=1&ref=ppx_yo2ov_dt_b_product_details) but regardless of the hardware, this should work for most machines.
 
 ## Step One
 Make sure the machines are updated, working and communicating with _ansible_, otherwise not much of this is going to work.  Most often you will need to change
 the inventory configuration to make which ever IPs the servers are on.
 
-After that is done, go ahead and execute the __kubex__ playbook and grab a refreshing drink.  It will take about twenty minutes, give or take.
+After that is done, go ahead and execute the __kubex__ playbook and grab a refreshing drink.  It will take about twenty minutes.
 
 ## Step Two
 Next we need to get the control-plane setup.  This isn't to hard and I put most of the configuration that I use inside a configuration file that the ansible scripts 
@@ -29,7 +25,8 @@ Execute ( on __Basil__ ):
 sudo kubeadm init --config /opt/kubeadm-config.yml
 ```
 
-This will get _kubeadm_ up and running and installing all the software.  If you want to, look at the configuration file to see exactly what it is doing.  
+This will get _kubeadm_ up and running and installing all the software.  If you want to, look at the configuration file to see exactly what it is doing.  You will probably 
+have to customize it based on the version of kubernetes you are installing and the IP range you want to use.
 
 I put everything in a configuration file since I was tired of dealing with command line options.  And configuration as code, because that's just smart.
 
@@ -38,17 +35,17 @@ Once _kubeadm_ is complete, make sure the setup the kubectl configuration file a
 ## Step Three
 I prefer to setup networking before I worry about the worker nodes, but that's just me.  You can do steps three and four at the same time if you can multitask.
 
-The only networking controller that i have been able to get working reliably is [Project Calico](https://www.tigera.io/project-calico/). This [docs](https://projectcalico.docs.tigera.io/getting-started/kubernetes/quickstart) are functional,
-but not great.  
+The only networking controller that i have been able to get working reliably is [Project Calico](https://www.tigera.io/project-calico/). The [docs](https://projectcalico.docs.tigera.io/getting-started/kubernetes/quickstart) are functional, but not great.  
 
 Bottom line is it works every time I have setup Kubernetes unlike some of the others.
 
 Execute ( on __Basil__ ):
 ```
-kubectl create -f https://projectcalico.docs.tigera.io/manifests/tigera-operator.yaml  && kubectl create -f /opt/calico-custom-resources.yml
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml  \
+    && kubectl create -f /opt/calico-custom-resources.yml
 ```
 
-It will take a few minutes, but should be any problems installing.
+It will take a few minutes, but should not be any problems installing.
 
 ## Step Four
 Remember that command you saved from Step Two? Yes? Good!

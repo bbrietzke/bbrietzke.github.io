@@ -28,7 +28,7 @@ spec:
 Call it something like ```address-pools.yaml``` so you don't forget what it is.
 
 ### BGP
-I know you need these to work, but don't ask me why. 
+I know you need these to work, but don't ask me why. Call it ```advertisements.yml```.
 
 ```
 ---
