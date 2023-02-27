@@ -6,6 +6,7 @@
 
 - [Kubernetes]()
     - [Installation](kube/installation.md)
+    - [Local Setup](kube/local_setup.md)
     - [Load Balancer](kube/metal_load_balancer.md)
     - [Metrics Server](kube/metrics_server.md)
     - [NFS Provisioner](kube/nfs_provisioner.md)
@@ -21,4 +22,4 @@
 - [Linux]()
     - [RAID Setup](linux/raid_setup.md)
     - [RAID Destruction](linux/raid_removal.md)
-    - [Ansible Playbooks]()
+    - [Ansible Playbooks](https://bbrietzke.github.io/ansible/)
