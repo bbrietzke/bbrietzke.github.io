@@ -74,4 +74,22 @@ kubectl apply -f advertisements.yml
 
 ## Usage
 
-Yeah, still haven't figured that one out.  I figure put the special annotations on the ingress controller and let it run.
+You need to create a load balancer service, which can be found [over here](https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/).  In the case of a MetalLb, the yaml document could look like:
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: example-service
+spec:
+  selector:
+    app: nginx
+  ports:
+    - port: 80 
+      targetPort: 80
+      name: http
+    - port: 443
+      targetPort: 443
+      name: https
+  type: LoadBalancer
+```

@@ -22,4 +22,3 @@
 - [Linux]()
     - [RAID Setup](linux/raid_setup.md)
     - [RAID Destruction](linux/raid_removal.md)
-    - [Ansible Playbooks]()
