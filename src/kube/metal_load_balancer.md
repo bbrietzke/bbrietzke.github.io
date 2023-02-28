@@ -22,7 +22,7 @@ metadata:
   namespace: metallb-system
 spec:
   addresses:
-  - 10.0.0.30-10.0.0.31
+  - 10.0.0.10-10.0.0.15
 ```
 
 Call it something like ```address-pools.yaml``` so you don't forget what it is.
