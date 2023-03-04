@@ -36,6 +36,4 @@ Every once in a while you will need to update the tools with:
 espup update
 ```
 
-
-
 ## Resources
