@@ -29,3 +29,11 @@ You don't *have* to configure **helm**, but it's not a bad idea either.  My pers
 ```
 helm repo add bbrietzke http://bbrietzke.github.io/charts
 ```
+
+I have a few charts that I tend to use, in particular for setting up namespaces.  I have three, _prod_, _dev_, and _infra_.  There isn't much else to customize, so this just works.
+
+```
+helm install namespaces bbrietzke/namespaces
+```
+
+It's also the first helm chart I created.

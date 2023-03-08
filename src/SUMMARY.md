@@ -9,8 +9,9 @@
     - [Local Setup](kube/local_setup.md)
     - [Load Balancer](kube/metal_load_balancer.md)
     - [Ingress Controller](kube/ingress_controller.md)
-    - [Metrics Server](kube/metrics_server.md)
+    - [Prometheus](kube/prometheus_setup.md)
     - [NFS Provisioner](kube/nfs_provisioner.md)
+    - [Metrics Server](kube/metrics_server.md)
 
 # Embedded Hardware
 
