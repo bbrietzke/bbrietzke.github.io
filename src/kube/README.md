@@ -9,10 +9,11 @@ going on, and maybe learn a thing or two along the way.  It is also documented b
 the mess every couple of months and I usually forget something along the way!
 
 ## Order of Operations
-* [Installation](kube/installation.md)
-* [Local Setup](kube/local_setup.md)
-* [Load Balancer](kube/metal_load_balancer.md)
-* [Ingress Controller](kube/ingress_controller.md)
-* [Prometheus](kube/prometheus_setup.md)
-* [NFS Provisioner](kube/nfs_provisioner.md)
-* [Metrics Server](kube/metrics_server.md)
+* [Installation](installation.md)
+* [Local Setup](local_setup.md)
+* [Load Balancer](metal_load_balancer.md)
+* [Certificate Manager](certmanager.md)
+* [Ingress Controller](ingress_controller.md)
+* [Prometheus](prometheus_setup.md)
+* [NFS Provisioner](nfs_provisioner.md)
+* [Metrics Server](metrics_server.md)
