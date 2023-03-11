@@ -4,7 +4,7 @@
 
 # Kubernetes
 
-- [Kubernetes]()
+- [Kubernetes](kube/README.md)
     - [Installation](kube/installation.md)
     - [Local Setup](kube/local_setup.md)
     - [Load Balancer](kube/metal_load_balancer.md)

@@ -56,5 +56,5 @@ alertmanager:
 Applying the helm chart is pretty standard, and once it's done, you'll have a working Prometheus setup within a few minutes.
 
 ```
-helm install -f prom_alertmanager.yml alertmanager prometheus-community/alertmanager -n infra
+helm install -f prom_values.yml prometheus prometheus-community/prometheus -n infra
 ```
