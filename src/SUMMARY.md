@@ -3,8 +3,7 @@
 [Introductions](README.md)
 
 # Kubernetes
-
-- [Kubernetes](kube/README.md)
+- [Introduction](kube/README.md)
     - [Installation](kube/installation.md)
     - [Local Setup](kube/local_setup.md)
     - [Load Balancer](kube/metal_load_balancer.md)
@@ -15,13 +14,15 @@
     - [Metrics Server](kube/metrics_server.md)
 
 # Embedded Hardware
-
-- [Embedded](embedded/README.md)
+- [Introduction](embedded/README.md)
     - [Raspberry Pi](embedded/rasppi.md)
     - [Rust](embedded/rust_embedded.md)
     - [Getting Started with Rust](embedded/rust_getting_started.md)
 
 # Linux
-- [Linux]()
+- [Introduction](linux/README.md)
     - [RAID Setup](linux/raid_setup.md)
     - [RAID Destruction](linux/raid_removal.md)
+
+# Runbooks
+- [Introduction](runbooks/README.md)
