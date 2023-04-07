@@ -15,9 +15,9 @@
 1. Create the user with an encrypted password:
     * We recommend using a long and complex password since the values will only be saved here and can be input into the target system at the same time.
     * The user name should reflect the database that they are primarily accessing.
-    * `CREATE USER db01_user with encrypted password 'db01_user';`
+    * `CREATE USER db01_user WITH ENCRYPTED PASSWORD 'db01_user';`
 1. Grant permissions for the user to access the database:
-    * `grant all privileges on database db01_prod to db01_user;`
+    * `GRANT ALL PRIVILEGES ON db01_prod TO db01_user;`
 
 ## Troubleshooting
     * If the target system can not log into the database after the database/user creation process, you can simply re-run the above steps to make sure to make sure that they are correct.
