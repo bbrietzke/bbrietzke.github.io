@@ -27,7 +27,7 @@
 ## Completion and Verification
 You can log into the target database from `callisto.lan` to verify if everything is setup correctly
 ```
-psql -h 'localhost' -U 'db01' -d 'db01_prod'
+psql -h 'callisto.lan' -U 'db01' -d 'db01_prod'
 ```
 It will prompt you for the password, which we have available and should provide.  If the login occurs, then the database/user/permissions should be okay.
 
