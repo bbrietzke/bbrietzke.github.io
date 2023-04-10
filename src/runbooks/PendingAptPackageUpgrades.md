@@ -21,7 +21,7 @@ The update process will cause a restart of the updated machine, which may cause 
 * Machines may not come back up during the reboot and may require a physical reboot for Ansible
 
 ## Completion and Verification
-* All machines must come back up and the count for the _Apt Upgrades ( Package )_ should go down to zero.
+* All machines must come back up and the count for the _Apt Upgrades_ should go down to zero.
 ## Contacts
 ## Appendix
 ### Changelog
