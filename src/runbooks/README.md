@@ -6,7 +6,7 @@ Most of the time, you see runbooks as a way of troubleshooting a problem, diagno
 This is a collection of the runbooks that I have decided to document for my area.
 
 ## Table of Contents
-* [Create PostgreSQL Database and User][postgresql_create_database_user.md]
+* [Create PostgreSQL Database and User](postgresql_create_database_user.md)
 
 ## Alerts
-* [Pending Apt Package Upgrades][alerts/pending_apt_package_upgrades.md]
+* [Pending Apt Package Upgrades](alerts/pending_apt_package_upgrades.md)
