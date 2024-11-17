@@ -1,0 +1,678 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introductions</a></li><li class="chapter-item expanded affix "><li class="part-title">Kubernetes</li><li class="chapter-item expanded "><a href="kube/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="kube/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="kube/local_setup.html"><strong aria-hidden="true">1.2.</strong> Local Setup</a></li><li class="chapter-item expanded "><a href="kube/metal_load_balancer.html"><strong aria-hidden="true">1.3.</strong> Load Balancer</a></li><li class="chapter-item expanded "><a href="kube/certmanager.html"><strong aria-hidden="true">1.4.</strong> Certificate Manager</a></li><li class="chapter-item expanded "><a href="kube/ingress_controller.html"><strong aria-hidden="true">1.5.</strong> Ingress Controller</a></li><li class="chapter-item expanded "><a href="kube/prometheus_setup.html"><strong aria-hidden="true">1.6.</strong> Prometheus</a></li><li class="chapter-item expanded "><a href="kube/nfs_provisioner.html"><strong aria-hidden="true">1.7.</strong> NFS Provisioner</a></li><li class="chapter-item expanded "><a href="kube/metrics_server.html"><strong aria-hidden="true">1.8.</strong> Metrics Server</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Embedded Hardware</li><li class="chapter-item expanded "><a href="embedded/index.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="embedded/rasppi.html"><strong aria-hidden="true">2.1.</strong> Raspberry Pi</a></li><li class="chapter-item expanded "><a href="embedded/rust_embedded.html"><strong aria-hidden="true">2.2.</strong> Rust</a></li><li class="chapter-item expanded "><a href="embedded/rust_getting_started.html"><strong aria-hidden="true">2.3.</strong> Getting Started with Rust</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Linux</li><li class="chapter-item expanded "><a href="linux/index.html"><strong aria-hidden="true">3.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="linux/raid_setup.html"><strong aria-hidden="true">3.1.</strong> RAID Setup</a></li><li class="chapter-item expanded "><a href="linux/raid_removal.html"><strong aria-hidden="true">3.2.</strong> RAID Destruction</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Runbooks</li><li class="chapter-item expanded "><a href="runbooks/index.html"><strong aria-hidden="true">4.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="runbooks/postgresql_create_database_user.html"><strong aria-hidden="true">4.1.</strong> PostgreSQL Database/User</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introductions"><a class="header" href="#introductions">Introductions</a></h1>
+<p>So this is my collection of thoughts, ideas and craziness documented for everyone to see.  I have a lot of different interests that I cycle through irregularly.  It's hard to keep track of the bits and pieces so I figure I should write some of this down.</p>
+<p>I don't like blogging, much to much like trying to keep a journal or a dairy ( not that there is anything wrong in that ).  Instead I have specific, task-focused documents that I want to keep around so that when I revisit a topic, I can pick up where I left off.</p>
+<p>If others find my documents and notes of interest, then that's great.  That is not the reason why I'm doing this though.</p>
+<p>If folks have suggestions or corrections, then great!  Create a fork, branch and submit a PR.  I don't mind being corrected and giving credit where credit is due.  I'm not right all the time and there are much more knowledgable folks out there then me.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="kubernetes"><a class="header" href="#kubernetes">Kubernetes</a></h1>
+<p><a href="https://kubernetes.io/">Kubernetes</a> is a big deal, and is something that I enjoy using.</p>
+<p>I have four servers setup that host my kubernetes environment, and then another four servers that host
+various services that I use with my kubernetes environment</p>
+<p>I have decided to document my kubernetes setup so that other folks can follow along and see what I have 
+going on, and maybe learn a thing or two along the way.  It is also documented because I tend to rebuild
+the mess every couple of months and I usually forget something along the way!</p>
+<h2 id="order-of-operations"><a class="header" href="#order-of-operations">Order of Operations</a></h2>
+<ul>
+<li><a href="kube/installation.html">Installation</a></li>
+<li><a href="kube/local_setup.html">Local Setup</a></li>
+<li><a href="kube/metal_load_balancer.html">Load Balancer</a></li>
+<li><a href="kube/certmanager.html">Certificate Manager</a></li>
+<li><a href="kube/ingress_controller.html">Ingress Controller</a></li>
+<li><a href="kube/prometheus_setup.html">Prometheus</a></li>
+<li><a href="kube/nfs_provisioner.html">NFS Provisioner</a></li>
+<li><a href="kube/metrics_server.html">Metrics Server</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="installing-kubernetes"><a class="header" href="#installing-kubernetes">Installing Kubernetes</a></h1>
+<p>These are my notes on installing <a href="https://kubernetes.io/">Kubernetes</a>.  They work for me in my home network.  They might might work for you.</p>
+<h2 id="setup"><a class="header" href="#setup">Setup</a></h2>
+<p>Almost all of the heavy lifting is done through <a href="https://www.ansible.com/">Ansible</a>.  That gets the software on the server, but doesn't do much in the way of 
+configuration, which is why I'm writting this up. You can find the playbooks and documents <a href="https://bbrietzke.github.io/ansible/">over here</a>. </p>
+<p>The current config has three machines, Basil, Lavender and Sage ( yes, herbs because why not ).  Basil is the control-plane, while the other two are
+workers.  They are <a href="https://www.amazon.com/dp/B0B2D8BZKP?psc=1&amp;ref=ppx_yo2ov_dt_b_product_details">cheap machines</a> but regardless of the hardware, this should work for most machines.</p>
+<h2 id="step-one"><a class="header" href="#step-one">Step One</a></h2>
+<p>Make sure the machines are updated, working and communicating with <em>ansible</em>, otherwise not much of this is going to work.  Most often you will need to change
+the inventory configuration to make which ever IPs the servers are on.</p>
+<p>After that is done, go ahead and execute the <strong>kubex</strong> playbook and grab a refreshing drink.  It will take about twenty minutes.</p>
+<h2 id="step-two"><a class="header" href="#step-two">Step Two</a></h2>
+<p>Next we need to get the control-plane setup.  This isn't to hard and I put most of the configuration that I use inside a configuration file that the ansible scripts 
+will build on Basil.</p>
+<p>Execute ( on <strong>Basil</strong> ):</p>
+<pre><code>sudo kubeadm init --config /opt/kubeadm-config.yml
+</code></pre>
+<p>This will get <em>kubeadm</em> up and running and installing all the software.  If you want to, look at the configuration file to see exactly what it is doing.  You will probably 
+have to customize it based on the version of kubernetes you are installing and the IP range you want to use.</p>
+<p>I put everything in a configuration file since I was tired of dealing with command line options.  And configuration as code, because that's just smart.</p>
+<p>Once <em>kubeadm</em> is complete, make sure the setup the kubectl configuration file and copy the command that that allows other nodes to join.</p>
+<h2 id="step-three"><a class="header" href="#step-three">Step Three</a></h2>
+<p>I prefer to setup networking before I worry about the worker nodes, but that's just me.  You can do steps three and four at the same time if you can multitask.</p>
+<p>The only networking controller that i have been able to get working reliably is <a href="https://www.tigera.io/project-calico/">Project Calico</a>. The <a href="https://projectcalico.docs.tigera.io/getting-started/kubernetes/quickstart">docs</a> are functional, but not great.</p>
+<p>Bottom line is it works every time I have setup Kubernetes unlike some of the others.</p>
+<p>Execute ( on <strong>Basil</strong> ):</p>
+<pre><code>kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml  \
+    &amp;&amp; kubectl create -f /opt/calico-custom-resources.yml
+</code></pre>
+<p>It will take a few minutes, but should not be any problems installing.</p>
+<h2 id="step-four"><a class="header" href="#step-four">Step Four</a></h2>
+<p>Remember that command you saved from Step Two? Yes? Good!</p>
+<p>Log into each of your worker nodes and execute it.  That will connect the workers to the control-plane and get the entire show running.</p>
+<h2 id="step-five"><a class="header" href="#step-five">Step Five</a></h2>
+<p>It will take the networking a while to settle in, or at least it always has for me.</p>
+<p>Execute ( on <strong>Basil</strong> ):</p>
+<pre><code>kubectl get nodes -o wide
+</code></pre>
+<p>You can also create a very basic <em>nginx</em> deployment just to see if things work.</p>
+<pre><code>kubectl apply -f https://gist.githubusercontent.com/bbrietzke/c59b6132c37ea36f9b84f1fee701a642/raw/00e1683fbd7422fc297629128b08bded6ca3c90b/kubernetes-test.yaml
+</code></pre>
+<p>Then:</p>
+<pre><code>open http://basil.local:30080/
+</code></pre>
+<p>And you should see a website in the browser of your choice.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="local-setup"><a class="header" href="#local-setup">Local Setup</a></h1>
+<p>There are some tools that I like to have on my local machine that makes working with Kubernetes much easier.
+This document will go through the installation and configuration of them.</p>
+<h2 id="what-to-install"><a class="header" href="#what-to-install">What to install?</a></h2>
+<p>Since I'm on a Mac, everything is installed through (Homebrew)[https://brew.sh/].</p>
+<pre><code>brew install k9s helm kubernetes-cli
+</code></pre>
+<h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
+<h3 id="kubernetes-tools"><a class="header" href="#kubernetes-tools">Kubernetes Tools</a></h3>
+<p>The only thing that <em>really</em> needs configuration is the kubernetes configuration tools.  For that, you need to get 
+a copy of the kube config file from the control-plane.</p>
+<pre><code>mkdir ~/.kube
+scp ubuntu@basil.local:.kube/config ~/.kube/config
+</code></pre>
+<p>This configures both <strong>k9s</strong> and <strong>kubectl</strong>, so that bit is done.  Both of the tools should work as you would expect.</p>
+<h3 id="helm"><a class="header" href="#helm">Helm</a></h3>
+<p>You don't <em>have</em> to configure <strong>helm</strong>, but it's not a bad idea either.  My personal chart repository is configured as follows.</p>
+<pre><code>helm repo add bbrietzke http://bbrietzke.github.io/charts
+</code></pre>
+<p>I have a few charts that I tend to use, in particular for setting up namespaces.  I have three, <em>prod</em>, <em>dev</em>, and <em>infra</em>.  There isn't much else to customize, so this just works.</p>
+<pre><code>helm install namespaces bbrietzke/namespaces
+</code></pre>
+<p>It's also the first helm chart I created.</p>
+<div style="break-before: page; page-break-before: always;"></div><p>Running Kubernetes on bare-metal? We'll need a load balancer.</p>
+<p>The installation is well documented ( and works ), so <a href="https://metallb.universe.tf/installation/">I won't repeated it here</a>.</p>
+<p>I ran the manifest method, just because it seems the easiest way to do it.  If I do it again, I'll try the helm route.</p>
+<h2 id="configuration-1"><a class="header" href="#configuration-1">Configuration</a></h2>
+<p>This is where the docs get confusing.</p>
+<p>You need to do some configuration after the installation and it's not explicitly clear what kind of configuration.</p>
+<h3 id="address-pools"><a class="header" href="#address-pools">Address Pools</a></h3>
+<p>The LB requires addresses that it can assign.  You should have a configuration document similiar to:</p>
+<pre><code>apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: available-pool
+  namespace: metallb-system
+spec:
+  addresses:
+  - 10.0.0.10-10.0.0.15
+</code></pre>
+<p>Call it something like <code>address-pools.yaml</code> so you don't forget what it is.</p>
+<h3 id="bgp"><a class="header" href="#bgp">BGP</a></h3>
+<p>I know you need these to work, but don't ask me why. Call it <code>advertisements.yml</code>.</p>
+<pre><code>---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: available-pool-l2
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - available-pool
+
+---
+apiVersion: metallb.io/v1beta2
+kind: BGPPeer
+metadata:
+  name: available-pool-peer
+  namespace: metallb-system
+spec:
+  myASN: 64500
+  peerASN: 64501
+  peerAddress: 10.0.0.1
+
+---
+apiVersion: metallb.io/v1beta1
+kind: BGPAdvertisement
+metadata:
+  name: available-pool-adv
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - available-pool
+</code></pre>
+<h2 id="applying-the-manifests"><a class="header" href="#applying-the-manifests">Applying the Manifests</a></h2>
+<p>Nothing out of the ordinary, if you build a manifest, you have to apply it.</p>
+<pre><code>kubectl apply -f address-pools.yaml
+kubectl apply -f advertisements.yml
+</code></pre>
+<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
+<p>You need to create a load balancer service, which can be found <a href="https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/">over here</a>.  In the case of a MetalLb, the yaml document could look like:</p>
+<pre><code>apiVersion: v1
+kind: Service
+metadata:
+  name: example-service
+spec:
+  selector:
+    app: nginx
+  ports:
+    - port: 80 
+      targetPort: 80
+      name: http
+    - port: 443
+      targetPort: 443
+      name: https
+  type: LoadBalancer
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="managing-certificates-in-kubernetes"><a class="header" href="#managing-certificates-in-kubernetes">Managing Certificates in Kubernetes</a></h1>
+<p>Dealing with TLS certificates is a pain in butt!</p>
+<p>This document is just a reshash/shorten view with my specific configuration.  You can find the full documentation over <a href="https://cert-manager.io/">at cert-manager.io</a>.</p>
+<h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
+<h3 id="helm-1"><a class="header" href="#helm-1">Helm</a></h3>
+<pre><code>helm repo add jetstack https://charts.jetstack.io &amp;&amp; helm repo update
+</code></pre>
+<p>There are a number of ancilliary resources that have to be installed.  You can do it manually, or let the helm chart do it ( which is what I did ).</p>
+<pre><code>helm install \
+  cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.11.0 --set installCRDs=true
+</code></pre>
+<p>Go over <a href="https://cert-manager.io/docs/installation/verify/">verify section on the official docs</a> to make sure it's working.</p>
+<h2 id="configuration-2"><a class="header" href="#configuration-2">Configuration</a></h2>
+<p>You have to create <strong>issuers</strong> per namespace that will actually create and distribute the certificates.  It's one of those resources that you 
+created when you installed the helm charts.</p>
+<h3 id="self-signed"><a class="header" href="#self-signed">Self-Signed</a></h3>
+<p>I created self-signed certificates for my namespaces just because.</p>
+<p>Here is an example CRD:</p>
+<pre><code>apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: dev-selfsigned-issuer
+  namespace: dev
+spec:
+  selfSigned: {}
+</code></pre>
+<p>I'm sure I'll write up a Helm chart at somepoint with the issuers that I need.</p>
+<h2 id="using-the-certificate-manager"><a class="header" href="#using-the-certificate-manager">Using the Certificate Manager</a></h2>
+<p>The certificates are mostly used by your ingress controllers to prove that the domain is valid and encrypt the communications between 
+the origin and the client.  I'm sure that can be used else where, but this is the scenerio that I use them for.</p>
+<p>You will need to modify the ingress resource defination to be similiar to:</p>
+<pre><code>...
+kind: Ingress
+metadata:
+    namespace: dev
+    annotation:
+        cert-manager.io/issuer: dev-selfsigned-issuer
+...
+</code></pre>
+<p>The namespace must match the name of the issuer for that namespace.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ingress-controllers"><a class="header" href="#ingress-controllers">Ingress Controllers</a></h1>
+<p>Gots to have a way to get to the applications that you built, so you have to have an ingress controller.  It handles
+domain name based routing and other stuffs.</p>
+<h2 id="tools"><a class="header" href="#tools">Tools</a></h2>
+<p>I've been using the <a href="https://kubernetes.github.io/ingress-nginx/">nginx ingress controller</a> that is part of the kubernetes project 
+to do the job.  It seems to work out reasonably well.</p>
+<p>You can run through <a href="https://kubernetes.github.io/ingress-nginx/deploy/#quick-start">the installation documentation</a> to get things working. 
+It's pretty straight forward.</p>
+<p>One of the nice things that it will do is create a load balancer for you that you can use to immediately start directing traffic.  At least
+it will if you have the MetalLb installed.</p>
+<h2 id="example"><a class="header" href="#example">Example</a></h2>
+<pre><code># ingress.yml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-demo
+  labels:
+    app: nginx-demo
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/use-forwarded-headers: &quot;true&quot;
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: &quot;faultycloud.io&quot;
+    http:
+      paths:
+      - pathType: Prefix
+        path: &quot;/&quot;
+        backend:
+          service:
+            name: nginx-service
+            port:
+              number: 80
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="setting-up-prometheus"><a class="header" href="#setting-up-prometheus">Setting up Prometheus</a></h1>
+<p>So you have a kubernetes cluster all setup, but how do you make sure that it's up and working?  Well, you have to monitor
+it!</p>
+<p>(Prometheus)[https://prometheus.io/] is a pretty complete all-in-one package for monitoring and alerting both stand alone nodes 
+and the applications that run on them.  It also has special hooks for monitoring Kubernetes and the pods that run on it.</p>
+<h2 id="setup-1"><a class="header" href="#setup-1">Setup</a></h2>
+<p>So the easy way is to use the community helm chart.  It will install Prometheus and a number of the other tools that falls under
+that umbrella as well.  It doesn't do it perfectly, but it's pretty damn close to seemless.</p>
+<h3 id="helm-charts"><a class="header" href="#helm-charts">Helm Charts</a></h3>
+<p>The Prometheus community build a set of helm charts over at (this Github page)[https://github.com/prometheus-community/helm-charts].<br />
+Which is nice because it's open source and publically available to all of us.</p>
+<p>The instructions are pretty complete and thought out so getting started is not much of a problem.  You have helm setup, right?</p>
+<pre><code>helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+</code></pre>
+<p>Take a look at the values, and see what you need to customize</p>
+<pre><code>helm show values prometheus-community/prometheus &gt; prom_values.yaml
+</code></pre>
+<p>The obivious ones are setting up the persistent storage and adding additional scrape targets.  I also ended up disabling the 
+installation of AlertManager since it wouldn't connect with a persistent volume with the current configuration.  Everything else 
+is pretty boilerplate and, honestly, I just left things alone.</p>
+<p>Here is my file:</p>
+<pre><code>server:
+  ingress:
+    enabled: true
+    annotations: 
+      kubernetes.io/ingress.class: nginx
+      kubernetes.io/tls-acme: 'false'
+    hosts: 
+      - prometheus.faultycloud.work
+    path: /
+  persistentVolume:
+    enabled: true
+    accessModes:
+      - ReadWriteOnce
+    size: 8Gi
+    volumeName: &quot;prometheus&quot;
+alertmanager:
+  enabled: false
+</code></pre>
+<p>Applying the helm chart is pretty standard, and once it's done, you'll have a working Prometheus setup within a few minutes.</p>
+<pre><code>helm install -f prom_values.yml prometheus prometheus-community/prometheus -n infra
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="nfs-persistent-volumes"><a class="header" href="#nfs-persistent-volumes">NFS Persistent Volumes</a></h1>
+<p>Do your pods need to have persitent volumes for your home Kubernetes cluster?  Turns out, NFS is an option</p>
+<p>https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner</p>
+<h2 id="helm-charts-1"><a class="header" href="#helm-charts-1">Helm Charts</a></h2>
+<p>You can add the helm chart with:</p>
+<pre><code>helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+</code></pre>
+<p>Then always pull the values, since you will need to customize the NFS server IP and path</p>
+<pre><code>helm show values nfs-subdir-external-provisioner/nfs-subdir-external-provisioner
+</code></pre>
+<p>An example customized one looks like the following:</p>
+<pre><code>nfs:
+  server: 10.0.0.155
+  path: /srv/nfs_shares/kubernetes
+</code></pre>
+<p>And of course, we have to provision:</p>
+<pre><code>helm install -f nfs_prov.yml nfs-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner -n infra
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><p>Metrics server is not quite as easy to install as advertise, at least on system installed with <code>kubeadm</code>.  But, the fix to make 
+it work is pretty simple, assuming you do it the insecure way.</p>
+<p>The correct way is more complicated, but also secure.</p>
+<h2 id="installing"><a class="header" href="#installing">Installing</a></h2>
+<p>The code and instructions to install metrics server <a href="https://github.com/kubernetes-sigs/metrics-server">can be found here</a>.  Again, not repeating them here so they go stale.</p>
+<p>The instructions work perfectly, things get installed and then don't work.  At all.</p>
+<p>The metrics pod just never becomes ready and then logs complain about SSL certificates being invalid.</p>
+<h2 id="cheating-and-being-insecure"><a class="header" href="#cheating-and-being-insecure">Cheating and Being Insecure</a></h2>
+<p>The easiest option is to add <code>--kubelet-insecure-tls</code> to the spec.container.args array.  I added it as the last one.</p>
+<p>You can make this edit either in the deployment or prior to doing a <code>kubectl apply</code> if you download the manifest files.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="embedded"><a class="header" href="#embedded">Embedded</a></h1>
+<p>Every year or three I get in the mood where I want to play with microcontrollers and LEDs and switches and wires and what-ever-else that I come across</p>
+<h2 id="table-of-contents"><a class="header" href="#table-of-contents">Table of Contents</a></h2>
+<ul>
+<li><a href="embedded/rasppi.html">Raspberry Pi</a></li>
+<li><a href="embedded/rust_embedded.html">Embedded Rust</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="raspberry-pi"><a class="header" href="#raspberry-pi">Raspberry Pi</a></h1>
+<p>Some notes and sources on <a href="embedded/">Raspberry Pi</a> things that I should keep track of.</p>
+<p>Basically, I look for these things all the time, and never can find them.</p>
+<h2 id="mechanical-drawings"><a class="header" href="#mechanical-drawings">Mechanical Drawings:</a></h2>
+<p><a href="https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-b-plus-mechanical-drawing.pdf">Raspberry Pi 3</a>
+<a href="https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-mechanical-drawing.pdf">Raspberry Pi 4</a></p>
+<h2 id="using-led0--led1"><a class="header" href="#using-led0--led1">Using LED0 &amp; LED1</a></h2>
+<pre><code>echo heartbeat | sudo tee /sys/class/leds/led1/trigger
+echo cpu | sudo tee /sys/class/leds/led0/trigger
+</code></pre>
+<h2 id="gpio-from-bash"><a class="header" href="#gpio-from-bash">GPIO from Bash</a></h2>
+<pre><code>echo 3 &gt; /sys/class/gpio/export
+cat /sys/class/gpio/gpio3/value
+echo out &gt; /sys/class/gpio/gpio3/direction
+echo 0 &gt; /sys/class/gpio/gpio3/value
+echo 1 &gt; /sys/class/gpio/gpio3/value
+
+echo high &gt; /sys/class/gpio/gpio4/direction
+</code></pre>
+<h2 id="rust"><a class="header" href="#rust">Rust</a></h2>
+<ul>
+<li><a href="https://github.com/golemparts/rppal">Raspberry Pi Peripheral Access Library</a></li>
+</ul>
+<h2 id="sources"><a class="header" href="#sources">Sources</a></h2>
+<ul>
+<li><a href="https://www.jeffgeerling.com/blogs/jeff-geerling/controlling-pwr-act-leds-raspberry-pi">Jeff Geerling</a></li>
+<li><a href="http://www.auctoris.co.uk/2012/08/23/gpio-with-sysfs-on-raspberry-pi-part-2/">GPIO with sysfs</a></li>
+<li><a href="http://codefoster.com/pi-basicgpio/">Basic GPIO</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="embedded-rust"><a class="header" href="#embedded-rust">Embedded Rust</a></h1>
+<p>So I like <a href="https://www.rust-lang.org/">Rust</a>, and I'm curious about how it works embedded into microcontrollers.  But, the documentation is scattered and some of it is outdated.</p>
+<p>This is my attempt to organize some of it for what I have found that works and is usefull.</p>
+<h2 id="general"><a class="header" href="#general">General</a></h2>
+<ul>
+<li><a href="https://docs.rust-embedded.org/book/intro/index.html">The Embedded Rust Book</a></li>
+</ul>
+<h2 id="esp32"><a class="header" href="#esp32">ESP32</a></h2>
+<ul>
+<li><a href="https://esp-rs.github.io/book/introduction.html">Rust on ESP Book</a></li>
+<li><a href="https://espressif-trainings.ferrous-systems.com/01_intro.html">Embedded Rust on Espressif</a></li>
+<li><a href="https://github.com/esp-rs/awesome-esp-rust">Awesome ESP Rust</a></li>
+<li><a href="https://github.com/ivmarkov/rust-esp32-std-demo">Rust on ESP32 STD demo app</a></li>
+<li><a href="https://github.com/esp-rs/esp-idf-hal">An embedded-hal implementation for ESP32[-XX] + ESP-IDF</a></li>
+<li><a href="https://github.com/ferrous-systems/espressif-trainings">Embedded Rust Trainings for Espressif</a></li>
+</ul>
+<h2 id="esp8266"><a class="header" href="#esp8266">ESP8266</a></h2>
+<ul>
+<li><a href="https://github.com/esp-rs/esp8266-hal">esp8266-hal</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started-with-rust"><a class="header" href="#getting-started-with-rust">Getting Started with Rust</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="raid-arrays"><a class="header" href="#raid-arrays">RAID Arrays</a></h1>
+<p>Let's build a few different kinds of RAID arrays and then use them.</p>
+<p>I'm not going to go into detail about what RAID is, or the different levels since there is plenty of documentation
+out there already.  These are the commands to setup software RAID for Linux and the general workflow to follow.</p>
+<h2 id="do-we-have-any-now"><a class="header" href="#do-we-have-any-now">Do we have any now?</a></h2>
+<p>Let's just double check</p>
+<pre><code>cat /proc/mdstat
+</code></pre>
+<h2 id="okay-which-devices"><a class="header" href="#okay-which-devices">Okay, which Devices?</a></h2>
+<p>Insert the new drives into the machine.  You <em>should</em> know what the come up as, but if you don't, try:</p>
+<pre><code>lsblk
+</code></pre>
+<p>That should get you a list of all the block devices on the system and where they are being used at.  Some of them
+don't make sense, but you should see the ones that you just added.  If needed, run the command and copy down the results.
+Then insert the drives and execute it again.</p>
+<p>I'll be using the following:</p>
+<pre><code>/dev/sda
+/dev/sdb
+/dev/sdc
+/dev/sdd
+</code></pre>
+<h2 id="create-the-arrays"><a class="header" href="#create-the-arrays">Create the ARRAYS!</a></h2>
+<h3 id="raid-0"><a class="header" href="#raid-0">RAID 0</a></h3>
+<p>We'll start with RAID 0, since it will allow us to use all the drives as one big ( though not redundant ) block device.</p>
+<pre><code>sudo mdadm --create --verbose /dev/md0 --level=raid0 --raid-devices=4 /dev/sda /dev/sdb /dev/sdc /dev/sdd
+</code></pre>
+<h3 id="raid-1"><a class="header" href="#raid-1">RAID 1</a></h3>
+<p>Simple mirroring.  The easiest to use, a decent redundancy package and not all that wasteful.</p>
+<pre><code>sudo mdadm --create --verbose /dev/md0 --level=raid1 --raid-devices=2 /dev/sda /dev/sdb
+</code></pre>
+<h3 id="raid-5"><a class="header" href="#raid-5">RAID 5</a></h3>
+<p>Probably the best all around choice.  Best use of capacity and good performance.</p>
+<pre><code>sudo mdadm --create --verbose /dev/md0 --level=raid5 --raid-devices=4 /dev/sda /dev/sdb /dev/sdc /dev/sdd
+</code></pre>
+<h2 id="creating-the-filesystem"><a class="header" href="#creating-the-filesystem">Creating the FileSystem</a></h2>
+<pre><code>sudo mkfs -t ext4 /dev/md0
+</code></pre>
+<h2 id="mounting"><a class="header" href="#mounting">Mounting</a></h2>
+<p>You should have these drives come up every time you want to use them, so add the entries to <code>/etc/fstab</code>.</p>
+<p>First you need the UUID of the array.</p>
+<pre><code>sudo blkid /dev/md0
+</code></pre>
+<p>Take the UUID and the following string and open up <code>/etc/fstab</code> to add something along the lines of:</p>
+<pre><code>UUID=655d2d3e-ab31-49c7-9cc3-583ec81fd316 /srv ext4 defaults 0 0
+</code></pre>
+<p>Then you can execute <code>sudo mount -a</code> and have the array appear where you wanted it.</p>
+<h2 id="update-config"><a class="header" href="#update-config">Update config</a></h2>
+<pre><code>sudo mdadm --detail --scan | sudo tee -a /etc/mdadm/mdadm.conf
+</code></pre>
+<p>then</p>
+<pre><code>sudo update-initramfs -u
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="destroying-raid-arrays"><a class="header" href="#destroying-raid-arrays">Destroying RAID Arrays</a></h1>
+<p>You create RAID drives, so you should know who to tear them down.</p>
+<p>So we built a few RAID arrays and mounted them, so that's grand.  Now let's tear them down.</p>
+<h2 id="unmount-everything"><a class="header" href="#unmount-everything">Unmount everything</a></h2>
+<p>Make sure you have the arrays unmounted from there normal ( or abnormal ) paths.  If you don't, not much of 
+this is going to work out well.</p>
+<h2 id="check-mdstat"><a class="header" href="#check-mdstat">Check mdstat</a></h2>
+<p>Lets check to see which arrays we currently have configured.</p>
+<pre><code>cat /proc/mdstat
+</code></pre>
+<p>The above should return any arrays you current have built and what state they are in.  In this case, we 
+need to know the names of the arrays so that we can remove them.</p>
+<h2 id="remove-arrays"><a class="header" href="#remove-arrays">Remove Arrays</a></h2>
+<p>Okay, let's stop the arrays.</p>
+<pre><code>mdadm --stop /dev/md127  # or whatever was returned above
+</code></pre>
+<p>Now that we don't have working arrays, we can zero them out so that they are empty.</p>
+<pre><code>mdadm --zero-superblock /dev/sda /dev/sdb /dev/sdc /dev/sdd
+</code></pre>
+<h2 id="trust-but-verify"><a class="header" href="#trust-but-verify">Trust, but Verify</a></h2>
+<p>Rerun the mdstat and make sure those pesky things are gone.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="runbooks"><a class="header" href="#runbooks">Runbooks</a></h1>
+<p>Runbooks are a way of documenting procedural Information Technology information that is repetitive in nature.</p>
+<p>Most of the time, you see runbooks as a way of troubleshooting a problem, diagnosising an issue or a procedure.</p>
+<p>This is a collection of the runbooks that I have decided to document for my area.</p>
+<h2 id="table-of-contents-1"><a class="header" href="#table-of-contents-1">Table of Contents</a></h2>
+<ul>
+<li><a href="runbooks/postgresql_create_database_user.html">Create PostgreSQL Database and User</a></li>
+</ul>
+<h2 id="alerts"><a class="header" href="#alerts">Alerts</a></h2>
+<ul>
+<li><a href="runbooks/alerts/pending_apt_package_upgrades.html">Pending Apt Package Upgrades</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="create-database-and-user-for-postgresql"><a class="header" href="#create-database-and-user-for-postgresql">Create Database and User for PostgreSQL</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<h2 id="pre-requistes"><a class="header" href="#pre-requistes">Pre-Requistes</a></h2>
+<ul>
+<li>Access to login into <code>callisto.lan</code> via ssh.</li>
+</ul>
+<h2 id="steps"><a class="header" href="#steps">Steps</a></h2>
+<ol>
+<li>Log into <code>callisto.lan</code> via SSH:
+<ul>
+<li><code>ssh ubuntu@callisto.lan</code></li>
+</ul>
+</li>
+<li>Sudo into the <code>postgres</code> user and execute the <code>psql</code> command line tool.
+<ul>
+<li><code>sudo -u postgres psql</code></li>
+</ul>
+</li>
+<li>Create the database:
+<ul>
+<li>The database name should reflect the application that is using it and if it is production with the inclusion of <code>_prod</code>.</li>
+<li><code>CREATE DATABASE db01_prod;</code></li>
+</ul>
+</li>
+<li>Create the user with an encrypted password:
+<ul>
+<li>We recommend using a long and complex password since the values will only be saved here and can be input into the target system at the same time.</li>
+<li>The user name should reflect the database that they are primarily accessing.</li>
+<li><code>CREATE USER db01 WITH ENCRYPTED PASSWORD '3^On9D4p59^4';</code></li>
+</ul>
+</li>
+<li>Grant permissions for the user to access the database:
+<ul>
+<li><code>GRANT ALL PRIVILEGES ON db01_prod TO db01;</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h2>
+<ul>
+<li>If the target system can not log into the database after the database/user creation process, you can simply re-run the above steps to make sure to make sure that they are correct.</li>
+<li>If the user is present, but the password has been forgotten, you may reset the password as follows:
+<ul>
+<li><code>ALTER USER db01_user WITH ENCRYPTED PASSWORD '3^On9D4p59^4';</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="completion-and-verification"><a class="header" href="#completion-and-verification">Completion and Verification</a></h2>
+<p>You can log into the target database from <code>callisto.lan</code> to verify if everything is setup correctly</p>
+<pre><code>psql -h 'callisto.lan' -U 'db01' -d 'db01_prod'
+</code></pre>
+<p>It will prompt you for the password, which we have available and should provide.  If the login occurs, then the database/user/permissions should be okay.</p>
+<h2 id="contacts"><a class="header" href="#contacts">Contacts</a></h2>
+<p>Not Applicable</p>
+<h2 id="appendix"><a class="header" href="#appendix">Appendix</a></h2>
+<h3 id="changelog"><a class="header" href="#changelog">Changelog</a></h3>
+<pre><code>* 2023/04/06 - Created</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>
