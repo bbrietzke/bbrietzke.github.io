@@ -1,7 +1,7 @@
 # Managing Certificates in Kubernetes
 Dealing with TLS certificates is a pain in butt!
 
-This document is just a reshash/shorten view with my specific configuration.  You can find the full documentation over (at cert-manager.io)[https://cert-manager.io/].
+This document is just a reshash/shorten view with my specific configuration.  You can find the full documentation over [at cert-manager.io](https://cert-manager.io/).
 
 ## Installation
 ### Helm
@@ -16,7 +16,7 @@ helm install \
   cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.11.0 --set installCRDs=true
 ```
 
-Go over (verify section on the official docs)[https://cert-manager.io/docs/installation/verify/] to make sure it's working.
+Go over [verify section on the official doc]s(https://cert-manager.io/docs/installation/verify/) to make sure it's working.
 
 ## Configuration
 You have to create __issuers__ per namespace that will actually create and distribute the certificates.  It's one of those resources that you 
