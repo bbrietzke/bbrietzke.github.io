@@ -49,7 +49,8 @@ sudo apt install -y containerd.io
 
 Need to have a configuration file for __containerd__.  Luckily, we can generate one.
 ```
-containerd config default | sudo tee /etc/containerd/config.toml >/dev/null 2>&1 
+containerd config default | sudo tee /etc/containerd/config.toml >/dev/null 2>&1 && \
+sudo sed -i 's/systemd_cgroup \= true/systemd_cgroup \= false/g' /etc/containerd/config.toml
 ```
 
 Then we'll need to enable and restart __containerd__.
