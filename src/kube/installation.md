@@ -25,13 +25,16 @@ sudo tee /etc/modules-load.d/containerd.conf << EOF
 overlay
 br_netfilter
 EOF
-
+```
+```
 sudo tee /etc/sysctl.d/kubernetes.conf << EOF
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 net.ipv4.ip_forward = 1
 EOF
+```
 
+```
 sudo modprobe overlay && sudo modprobe br_netfilter && sudo sysctl --system
 ```
 
@@ -46,7 +49,7 @@ sudo apt install -y containerd.io
 
 Need to have a configuration file for __containerd__.  Luckily, we can generate one.
 ```
-containerd config default | sudo tee /etc/containerd/config.toml >/dev/null 2>&1
+containerd config default | sudo tee /etc/containerd/config.toml >/dev/null 2>&1 
 ```
 
 Then we'll need to enable and restart __containerd__.
@@ -56,14 +59,10 @@ sudo systemctl restart containerd
 ```
 
 ### Step Four: Kubernetes Runtime Installation
-This will setup kubernetes 1.31 to be installed on the machine.  At the time of writing, it is the most current version.
+This will install kubernetes 1.31 to be installed on the machine.  At the time of writing, it is the most current version.
 ```
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key | sudo gpg  --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg && \
-echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.31/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-```
-
-Now for the kubernetes binaries.
-```
+echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.31/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list && \
 sudo apt update && \
 sudo apt install -y kubelet kubeadm kubectl
 ```
@@ -93,65 +92,26 @@ kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 ```
 
 ### Step Eight: Container Networking
-
-
-## Setup
-Almost all of the heavy lifting is done through [Ansible](https://www.ansible.com/).  That gets the software on the server, but doesn't do much in the way of 
-configuration, which is why I'm writting this up. You can find the playbooks and documents [over here](https://bbrietzke.github.io/ansible/). 
-
-The current config has three machines, Basil, Lavender and Sage ( yes, herbs because why not ).  Basil is the control-plane, while the other two are
-workers.  They are [cheap machines](https://www.amazon.com/dp/B0B2D8BZKP?psc=1&ref=ppx_yo2ov_dt_b_product_details) but regardless of the hardware, this should work for most machines.
-
-## Step One
-Make sure the machines are updated, working and communicating with _ansible_, otherwise not much of this is going to work.  Most often you will need to change
-the inventory configuration to make which ever IPs the servers are on.
-
-After that is done, go ahead and execute the __kubex__ playbook and grab a refreshing drink.  It will take about twenty minutes.
-
-## Step Two
-Next we need to get the control-plane setup.  This isn't to hard and I put most of the configuration that I use inside a configuration file that the ansible scripts 
-will build on Basil.
-
-Execute ( on __Basil__ ):
+In order for the node to become *ready*, it will need networking installed. For simple, one node installs I personally think Flannel is perfectly reasonable. It will take a little bit for the networking jitters to settle.
 ```
-sudo kubeadm init --config /opt/kubeadm-config.yml
+kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
 ```
 
-This will get _kubeadm_ up and running and installing all the software.  If you want to, look at the configuration file to see exactly what it is doing.  You will probably 
-have to customize it based on the version of kubernetes you are installing and the IP range you want to use.
-
-I put everything in a configuration file since I was tired of dealing with command line options.  And configuration as code, because that's just smart.
-
-Once _kubeadm_ is complete, make sure the setup the kubectl configuration file and copy the command that that allows other nodes to join.
-
-## Step Three
-I prefer to setup networking before I worry about the worker nodes, but that's just me.  You can do steps three and four at the same time if you can multitask.
-
-The only networking controller that i have been able to get working reliably is [Project Calico](https://www.tigera.io/project-calico/). The [docs](https://projectcalico.docs.tigera.io/getting-started/kubernetes/quickstart) are functional, but not great.  
-
-Bottom line is it works every time I have setup Kubernetes unlike some of the others.
-
-Execute ( on __Basil__ ):
+### Step Nine: Does it work?
+Let's pull up the cluster information
 ```
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml  \
-    && kubectl create -f /opt/calico-custom-resources.yml
+kubectl cluster-info
 ```
-
-It will take a few minutes, but should not be any problems installing.
-
-## Step Four
-Remember that command you saved from Step Two? Yes? Good!
-
-Log into each of your worker nodes and execute it.  That will connect the workers to the control-plane and get the entire show running.
-
-## Step Five
-It will take the networking a while to settle in, or at least it always has for me.  
-
-Execute ( on __Basil__ ):
+Do all nodes show __READY__?
 ```
 kubectl get nodes -o wide
 ```
+What do the pods look like?
+```
+kubectl get pods -o wide --all-namespaces
+```
 
+### Step Ten: Install Something!
 You can also create a very basic _nginx_ deployment just to see if things work.
 ```
 kubectl apply -f https://gist.githubusercontent.com/bbrietzke/c59b6132c37ea36f9b84f1fee701a642/raw/00e1683fbd7422fc297629128b08bded6ca3c90b/kubernetes-test.yaml
@@ -159,7 +119,7 @@ kubectl apply -f https://gist.githubusercontent.com/bbrietzke/c59b6132c37ea36f9b
 
 Then:
 ```
-open http://basil.local:30080/
+open http://kubernetes-host.local:30080/
 ```
 
 And you should see a website in the browser of your choice.
