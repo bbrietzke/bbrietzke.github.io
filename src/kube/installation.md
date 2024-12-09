@@ -92,10 +92,12 @@ kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 ```
 
 ### Step Eight: Container Networking
-In order for the node to become *ready*, it will need networking installed. For simple, one node installs I personally think Flannel is perfectly reasonable. It will take a little bit for the networking jitters to settle.
+In order for the node to become *ready*, it will need networking installed. For simple, one node installs I personally think Flannel is perfectly reasonable. 
 ```
 kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
 ```
+
+It will take a little bit for the networking jitters to settle.
 
 ### Step Nine: Does it work?
 Let's pull up the cluster information
