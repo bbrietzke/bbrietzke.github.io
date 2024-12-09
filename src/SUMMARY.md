@@ -6,7 +6,7 @@
 - [Introduction](kube/README.md)
     - [Installation](kube/installation.md)
     - [Local Setup](kube/local_setup.md)
-    * [Add Worker Node](kube/add_worker.md)
+    - [Add Worker Node](kube/add_worker.md)
     - [Certificate Manager](kube/certmanager.md)
     - [NFS Provisioner](kube/nfs_provisioner.md)
     - [Metrics Server](kube/metrics_server.md)
