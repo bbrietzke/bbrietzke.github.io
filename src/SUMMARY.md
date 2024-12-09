@@ -6,6 +6,7 @@
 - [Introduction](kube/README.md)
     - [Installation](kube/installation.md)
     - [Local Setup](kube/local_setup.md)
+    * [Add Worker Node](add_worker.md)
     - [Load Balancer](kube/metal_load_balancer.md)
     - [Certificate Manager](kube/certmanager.md)
     - [Ingress Controller](kube/ingress_controller.md)

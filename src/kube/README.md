@@ -11,6 +11,7 @@ the mess every couple of months and I usually forget something along the way!
 ## Order of Operations
 * [Installation](installation.md)
 * [Local Setup](local_setup.md)
+* [Add Worker Node](add_worker.md)
 * [Load Balancer](metal_load_balancer.md)
 * [Certificate Manager](certmanager.md)
 * [Ingress Controller](ingress_controller.md)
