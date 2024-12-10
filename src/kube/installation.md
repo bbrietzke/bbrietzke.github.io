@@ -49,8 +49,8 @@ sudo apt install -y containerd.io
 
 Need to have a configuration file for __containerd__.  Luckily, we can generate one.
 ```
-containerd config default | sudo tee /etc/containerd/config.toml >/dev/null 2>&1 && \
-sudo sed -i 's/systemd_cgroup \= true/systemd_cgroup \= false/g' /etc/containerd/config.toml
+containerd config default | sudo tee /etc/containerd/config.toml >/dev/null 2>&1 
+sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
 ```
 
 Then we'll need to enable and restart __containerd__.
@@ -71,7 +71,7 @@ sudo apt install -y kubelet kubeadm kubectl
 ### Step Five: Kubeadm Execution
 Now for the part that we've all been waiting for! The prerequisites are in place so now it's time to get kubernetes up and running.
 ```
-sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+sudo kubeadm init
 ```
 
 This will take a little while to run.
@@ -93,9 +93,9 @@ kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 ```
 
 ### Step Eight: Container Networking
-In order for the node to become *ready*, it will need networking installed. For simple, one node installs I personally think Flannel is perfectly reasonable. 
+In order for the node to become *ready*, it will need networking installed. For simple, one node installs I personally think Calico is perfectly reasonable. 
 ```
-kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
+kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.29.0/manifests/calico.yaml
 ```
 
 It will take a little bit for the networking jitters to settle.
@@ -111,7 +111,7 @@ kubectl get nodes -o wide
 ```
 What do the pods look like?
 ```
-kubectl get pods -o wide --all-namespaces
+kubectl get pods -o wide -A
 ```
 
 ### Step Ten: Install Something!
