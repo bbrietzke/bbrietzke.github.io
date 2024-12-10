@@ -95,7 +95,7 @@ kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 ### Step Eight: Container Networking
 In order for the node to become *ready*, it will need networking installed. For simple, one node installs I personally think Calico is perfectly reasonable. 
 ```
-kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.29.0/manifests/calico.yaml
+kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.29.1/manifests/calico.yaml
 ```
 
 It will take a little bit for the networking jitters to settle.
@@ -117,7 +117,7 @@ kubectl get pods -o wide -A
 ### Step Ten: Install Something!
 You can also create a very basic _nginx_ deployment just to see if things work.
 ```
-kubectl apply -f https://gist.githubusercontent.com/bbrietzke/c59b6132c37ea36f9b84f1fee701a642/raw/00e1683fbd7422fc297629128b08bded6ca3c90b/kubernetes-test.yaml
+kubectl apply -f https://gist.githubusercontent.com/bbrietzke/c59b6132c37ea36f9b84f1fee701a642/raw/a6ddf58bf732568bef5c8f04d09f49f421055485/kubernetes-test.yaml
 ```
 
 Then:
