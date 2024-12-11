@@ -117,12 +117,12 @@ kubectl get pods -o wide -A
 ### Step Ten: Install Something!
 You can also create a very basic _nginx_ deployment just to see if things work.
 ```
-kubectl apply -f https://gist.githubusercontent.com/bbrietzke/c59b6132c37ea36f9b84f1fee701a642/raw/a6ddf58bf732568bef5c8f04d09f49f421055485/kubernetes-test.yaml
+kubectl apply -f https://gist.githubusercontent.com/bbrietzke/c59b6132c37ea36f9b84f1fee701a642/raw/952524cec7892e9db350fc62773c32ddfd9ab867/kubernetes-test.yaml
 ```
 
 Then:
 ```
-open http://kubernetes-host.local:30080/
+open http://kubernetes-host.local:30081/
 ```
 
 And you should see a website in the browser of your choice.
