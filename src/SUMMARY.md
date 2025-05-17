@@ -16,6 +16,8 @@
     - [RAID Setup](linux/raid_setup.md)
     - [RAID Destruction](linux/raid_removal.md)
     - [Custom Hostnames](linux/publish_host.md)
+    - [Prometheus](linux/prometheus.md)
+    - [AlertManager](linux/alertmanager.md)
 
 # Runbooks
 - [Introduction](runbooks/README.md)
