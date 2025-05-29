@@ -18,6 +18,7 @@
     - [Custom Hostnames](linux/publish_host.md)
     - [Prometheus](linux/prometheus.md)
     - [AlertManager](linux/alertmanager.md)
+    - [Node Exporter](node_exporter.md)
 
 # Runbooks
 - [Introduction](runbooks/README.md)
