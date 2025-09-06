@@ -10,7 +10,7 @@ cpu, memory, logical_disk, physical_disk, net, service, system
 
 ```
 $server_name = "DEV001"
-$src = "https://github.com/prometheus-community/windows_exporter/releases/download/v0.31.0-beta.1/windows_exporter-0.31.0-beta.1-amd64.exe"
+$src = "https://github.com/prometheus-community/windows_exporter/releases/download/v0.31.2/windows_exporter-0.31.2-amd64.exe"
 Enter-PSSession -ComputerName $server_name -Credential Administrator
 
 New-Item -Path "C:\Program Files" -Name "windows_exporter" -Item "Directory"

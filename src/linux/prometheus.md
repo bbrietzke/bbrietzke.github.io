@@ -35,20 +35,19 @@ Now for the fun part!
 
 The tarball used for this is the latest ( as of this writing ) LTS for Prometheus.  You can change it to be what you [need](https://prometheus.io/download/#prometheus).
 ```
-wget https://github.com/prometheus/prometheus/releases/download/v2.53.4/prometheus-2.53.4.linux-arm64.tar.gz
+wget https://github.com/prometheus/prometheus/releases/download/v3.5.0/prometheus-3.5.0.linux-amd64.tar.gz
 tar zvxf prometheus*.tar.gz
 cd prometheus*/
 sudo mv prometheus /usr/local/bin
 sudo mv promtool /usr/local/bin
 sudo chown prometheus:prometheus /usr/local/bin/prometheus
 sudo chown prometheus:prometheus /usr/local/bin/promtool
-sudo mv consoles /etc/prometheus
-sudo mv console_libraries /etc/prometheus
 sudo mv prometheus.yml /etc/prometheus
 sudo chown prometheus:prometheus /etc/prometheus
-sudo chown -R prometheus:prometheus /etc/prometheus/consoles
-sudo chown -R prometheus:prometheus /etc/prometheus/console_libraries
 sudo chown -R prometheus:prometheus /var/lib/prometheus
+
+cd ..
+rm -rf prom*
 ```
 
 ### Configuring
@@ -69,7 +68,7 @@ alerting:
   alertmanagers:
     - static_configs:
         - targets:
-          # - alertmanager:9093
+           - alertmanager:9093
 
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:
@@ -121,9 +120,7 @@ Group=prometheus
 Type=simple
 ExecStart=/usr/local/bin/prometheus \
     --config.file /etc/prometheus/prometheus.yml \
-    --storage.tsdb.path /var/lib/prometheus/ \
-    --web.console.templates=/etc/prometheus/consoles \
-    --web.console.libraries=/etc/prometheus/console_libraries
+    --storage.tsdb.path /var/lib/prometheus/ 
 
 [Install]
 WantedBy=multi-user.target

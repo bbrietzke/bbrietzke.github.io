@@ -34,12 +34,15 @@ Now for the fun part!
 
 You can view the lasted node exporter downloads and pick the one you [need](https://prometheus.io/download/#node_exporter).
 ```
-wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-arm64.tar.gz
+wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-amd64.tar.gz
 tar zvxf node_exporter*.tar.gz
 cd node_exporter*/
 sudo mv node_exporter /usr/local/bin
 sudo chown nodeexporter:nodeexporter /usr/local/bin/node_exporter
 sudo chown -R nodeexporter:nodeexporter /var/lib/node_exporter
+
+cd ..
+rm -rf node*
 ```
 
 ### Run at Startup

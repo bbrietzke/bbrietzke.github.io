@@ -32,15 +32,19 @@ sudo mkdir /var/lib/alertmanager
 Now for the fun part!
 ```
 // https://prometheus.io/download/#alertmanager
-wget https://github.com/prometheus/alertmanager/releases/download/v0.28.1/alertmanager-0.28.1.linux-arm64.tar.gz
+wget https://github.com/prometheus/alertmanager/releases/download/v0.28.1/alertmanager-0.28.1.linux-amd64.tar.gz
 tar zvxf alertmanager*.tar.gz
 cd alertmanager*/
 sudo mv alertmanager /usr/local/bin
 sudo mv amtool /usr/local/bin
 sudo chown alertmanager:alertmanager /usr/local/bin/alertmanager
 sudo chown alertmanager:alertmanager /usr/local/bin/amtool
+sudo chown alertmanager:alertmanager /var/lib/alertmanager
 
 sudo mv alertmanager.yml /etc/alertmanager
+
+cd ..
+rm -rf alert*
 ```
 
 
@@ -74,7 +78,4 @@ sudo systemctl daemon-reload
 sudo systemctl enable alertmanager
 sudo systemctl start alertmanager
 sudo systemctl status alertmanager
-
-
-
 ```
