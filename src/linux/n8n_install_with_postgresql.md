@@ -44,6 +44,12 @@ Group=n8n
 Type=simple
 Restart=always
 RestartSec=10
+Environment=N8N_EMAIL_MODE=smtp
+Environment=N8N_SMTP_HOST=
+Environment=N8N_SMTP_PORT=587
+Environment=N8N_SMTP_USER=
+Environment=N8N_SMTP_PASS=
+Environment=N8N_SMTP_SENDER=n8n@brietzke.me
 Environment=DB_TYPE=postgresdb
 Environment=DB_POSTGRESDB_DATABASE=n8n_prod
 Environment=DB_POSTGRESDB_HOST=localhost
@@ -53,8 +59,9 @@ Environment=DB_POSTGRESDB_PASSWORD=password
 Environment=DB_POSTGRESDB_SCHEMA=public
 Environment=N8N_SECURE_COOKIE=false
 Environment=GENERIC_TIMEZONE=America/Chicago
-Environment=N8N_EDITOR_BASE_URL=https://workflow.brietzke.me
-Environment=N8N_HOST=https://workflow.brietzke.me
+Environment=N8N_EDITOR_BASE_URL=https://workflow.example.org
+Environment=N8N_HOST=https://workflow.example.org
+Environment=WEBHOOK_URL=https://workflow.example.org
 WorkingDirectory=/var/lib/n8n
 ExecStart=/usr/bin/n8n
 
@@ -70,8 +77,8 @@ sudo systemctl status n8n
 
 install qdrant
 ```
-wget https://github.com/qdrant/qdrant/releases/download/v1.15.3/qdrant_1.15.3-1_amd64.deb
-sudo dpkg -i qdrant_1.15.3-1_amd64.deb
+wget https://github.com/qdrant/qdrant/releases/download/v1.15.4/qdrant_1.15.4-1_amd64.deb
+sudo dpkg -i qdrant_1.15.4-1_amd64.deb
 ```
 
 create qdrant user
@@ -188,12 +195,24 @@ sudo nano /etc/nginx/sites-available/default
 ```
 server {
     listen 80;
-    server_name workflow; # Replace with your domain or IP
+    server_name workflow;  # Replace with your actual domain or use localhost
+
     location / {
-        proxy_pass http://localhost:5678/;
+        proxy_pass http://localhost:5678;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        
+        # WebSocket support (if needed)
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        
+        # Timeout settings
+        proxy_connect_timeout 60s;
+        proxy_send_timeout 60s;
+        proxy_read_timeout 60s;
     }
 }
 ```
