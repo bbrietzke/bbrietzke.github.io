@@ -60,10 +60,10 @@ sudo systemctl restart containerd
 ```
 
 ### Step Four: Kubernetes Runtime Installation
-This will install kubernetes 1.31 to be installed on the machine.  At the time of writing, it is the most current version.
+This will install kubernetes 1.34 to be installed on the machine.  At the time of writing, it is the most current version.
 ```
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key | sudo gpg  --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg && \
-echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.31/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list && \
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.34/deb/Release.key | sudo gpg  --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg && \
+echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.34/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list && \
 sudo apt update && \
 sudo apt install -y kubelet kubeadm kubectl
 ```

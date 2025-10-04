@@ -49,7 +49,7 @@ Environment=N8N_SMTP_HOST=
 Environment=N8N_SMTP_PORT=587
 Environment=N8N_SMTP_USER=
 Environment=N8N_SMTP_PASS=
-Environment=N8N_SMTP_SENDER=n8n@brietzke.me
+Environment=N8N_SMTP_SENDER=n8n@example.org
 Environment=DB_TYPE=postgresdb
 Environment=DB_POSTGRESDB_DATABASE=n8n_prod
 Environment=DB_POSTGRESDB_HOST=localhost
