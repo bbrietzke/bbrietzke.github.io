@@ -8,7 +8,7 @@ This is for installation on an Ubuntu 24.04 LTS machine.  I would recommend a ma
 
 Make sure your server is up to date before we get started.
 ```
-sudo apt update && sudo apt dist-upgrade -y 
+sudo apt update && sudo apt full-upgrade -y 
 ```
 
 ## Step By Step
@@ -95,7 +95,7 @@ kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 ### Step Eight: Container Networking
 In order for the node to become *ready*, it will need networking installed. For simple, one node installs I personally think Calico is perfectly reasonable. 
 ```
-kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.29.1/manifests/calico.yaml
+kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/calico.yaml
 ```
 
 It will take a little bit for the networking jitters to settle.
