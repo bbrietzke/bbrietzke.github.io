@@ -18,7 +18,9 @@
     - [Custom Hostnames](linux/publish_host.md)
     - [Prometheus](linux/prometheus.md)
     - [AlertManager](linux/alertmanager.md)
-    - [Node Exporter](node_exporter.md)
+    - [Node Exporter](linux/node_exporter.md)
+    - [N8N the hard way](linux/n8n_install_with_postgresql.md)
+    - [Cassandra Installation](linux/cassandra_installation.md)
 
 # Runbooks
 - [Introduction](runbooks/README.md)

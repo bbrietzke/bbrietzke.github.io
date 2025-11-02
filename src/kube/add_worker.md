@@ -1,5 +1,7 @@
 # Adding a Worker Node
-On the control plane, all you need is:
+
+On the worker node, all you need to do is steps one through four of the installation page.  After installation, execute the following on the control plane node:
+
 ```
 kubeadm token create --print-join-command
 ```

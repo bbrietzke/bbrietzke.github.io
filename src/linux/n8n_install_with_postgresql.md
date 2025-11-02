@@ -1,19 +1,39 @@
-```
+# Install and Configure N8N with PostgreSQL, Qdrant, and Nginx
+
+Below is a step‑by‑step guide to set up **N8N** (an open‑source workflow automation tool) on a fresh Ubuntu system. 
+It uses **PostgreSQL 17** for persistence, **Qdrant** as a vector store, and **Nginx** as a reverse proxy.
+
+> **Prerequisites** 
+> • A user with `sudo` privileges 
+> • A recent Ubuntu release (20.04 LTS or newer) 
+> • A domain name (or you can use `localhost` for local testing)
+
+---
+
+## 1. Install Required Packages
+
+```bash
 sudo apt install -y curl apt-transport-https ca-certificates gnupg
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt install -y postgresql-common
 sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
-
 sudo apt install -y postgresql-17 nodejs nginx
 sudo npm install -g n8n@latest
 ```
 
-configure databases
-```
+---
+
+## 2. Configure PostgreSQL
+
+### 2.1. Connect as the `postgres` user
+
+```bash
 sudo -u postgres psql
 ```
-execute sql
-```
+
+### 2.2. Execute the following SQL
+
+```sql
 alter user postgres with encrypted password 'password';
 create database n8n_prod;
 create user n8n with password 'password';
@@ -21,18 +41,27 @@ alter database n8n_prod owner to n8n;
 \q
 ```
 
+> **Tip** 
+> Replace the placeholder passwords with secure values before production use.
 
-create n8n user
-```
+---
+
+## 3. Create a Dedicated N8N System User
+
+```bash
 sudo groupadd --system n8n
 sudo useradd -m -d /var/lib/n8n -s /sbin/nologin --system -g n8n n8n
 ```
 
-### Run at Startup
-```
+---
+
+## 4. Create a Systemd Service for N8N
+
+```bash
 sudo nano /etc/systemd/system/n8n.service
 ```
-```
+
+```ini
 [Unit]
 Description=N8N Workflow
 Wants=network-online.target
@@ -68,32 +97,46 @@ ExecStart=/usr/bin/n8n
 [Install]
 WantedBy=multi-user.target
 ```
-```
+
+> **Note** 
+> Update the SMTP and URL placeholders with your actual values.
+
+```bash
 sudo systemctl daemon-reload
 sudo systemctl enable n8n
 sudo systemctl start n8n
 sudo systemctl status n8n
 ```
 
-install qdrant
-```
+---
+
+## 5. Install Qdrant
+
+```bash
 wget https://github.com/qdrant/qdrant/releases/download/v1.15.4/qdrant_1.15.4-1_amd64.deb
 sudo dpkg -i qdrant_1.15.4-1_amd64.deb
 ```
 
-create qdrant user
-```
+---
+
+## 6. Create a Dedicated Qdrant System User
+
+```bash
 sudo groupadd --system qdrant
 sudo useradd -m -d /var/lib/qdrant -s /sbin/nologin --system -g qdrant qdrant
 sudo touch /var/lib/qdrant/config.yaml
 sudo chown -R qdrant:qdrant /var/lib/qdrant/
 ```
 
-qdrant config file
-```
+---
+
+## 7. Configure Qdrant
+
+```bash
 sudo nano /var/lib/qdrant/config.yaml
 ```
-```
+
+```yaml
 log_level: INFO
 storage:
   storage_path: ./storage
@@ -156,12 +199,15 @@ service:
 telemetry_disabled: false
 ```
 
+---
 
-### Run at Startup
-```
+## 8. Create a Systemd Service for Qdrant
+
+```bash
 sudo nano /etc/systemd/system/qdrant.service
 ```
-```
+
+```ini
 [Unit]
 Description=Qdrant Vector Store
 Wants=network-online.target
@@ -179,20 +225,23 @@ ExecStart=/usr/bin/qdrant --config-path /var/lib/qdrant/config.yaml
 [Install]
 WantedBy=multi-user.target
 ```
-```
+
+```bash
 sudo systemctl daemon-reload
 sudo systemctl enable qdrant
 sudo systemctl start qdrant
 sudo systemctl status qdrant
 ```
 
+---
 
-configure nginx port forwarding
-```
+## 9. Configure Nginx as a Reverse Proxy
+
+```bash
 sudo nano /etc/nginx/sites-available/default
 ```
 
-```
+```nginx
 server {
     listen 80;
     server_name workflow;  # Replace with your actual domain or use localhost
@@ -203,29 +252,53 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
-        
-        # WebSocket support (if needed)
+
+        # WebSocket support
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
-        
-        # Timeout settings
-        proxy_connect_timeout 60s;
-        proxy_send_timeout 60s;
-        proxy_read_timeout 60s;
     }
 }
 ```
 
-```
-sudo nginx -t && sudo systemctl restart nginx
+> **Note** 
+> Adjust `server_name` and `proxy_pass` if your N8N instance listens on a different port or uses HTTPS.
+
+```bash
+sudo nginx -t
+sudo systemctl restart nginx
 ```
 
+---
 
-option, enable firewall
-```
-sudo ufw allow http
-sudo ufw allow https
-sudo ufw allow ssh
+## 10. (Optional) Enable a Firewall
+
+```bash
+sudo ufw allow 'Nginx Full'
+sudo ufw allow 6333  # Qdrant HTTP port
+sudo ufw allow 6334  # Qdrant gRPC port
 sudo ufw enable
 ```
+
+> **Security Tip** 
+> Review the firewall rules and restrict access to only the necessary ports in a production environment.
+
+---
+
+## 11. Verify Everything Works
+
+1. Open your browser and navigate to `https://workflow.example.org` (or the domain you configured). 
+2. Log in to N8N and verify that the **PostgreSQL** and **Qdrant** connections are active. 
+3. Test a simple workflow that includes a vector query to ensure the stack is integrated correctly.
+
+---
+
+### Further Resources
+
+* [N8N Documentation](https://docs.n8n.io/) – Complete user guide and API reference 
+* [Qdrant Docs](https://qdrant.tech/documentation/) – Detailed configuration options 
+* [Nginx Reverse Proxy Guide](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/) – Advanced proxy settings
+
+---
+
+**Congratulations!** You now have a fully functional N8N installation with PostgreSQL persistence, a Qdrant vector store, and Nginx reverse proxy. Feel free to explore and expand your workflows. Happy automating!
