@@ -19,8 +19,13 @@
     - [Prometheus](linux/prometheus.md)
     - [AlertManager](linux/alertmanager.md)
     - [Node Exporter](linux/node_exporter.md)
-    - [N8N the hard way](linux/n8n_install_with_postgresql.md)
     - [Cassandra Installation](linux/cassandra_installation.md)
+
+# The Hard Way
+- [Introduction](hard_way/README.md)
+    - [N8N the hard way](hard_way/n8n_install_with_postgresql.md)
+    - [Network Storage](hard_way/network_storage.md)
+
 
 # Runbooks
 - [Introduction](runbooks/README.md)
