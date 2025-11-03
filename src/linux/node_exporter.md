@@ -36,7 +36,7 @@ These directories store configuration files and libraries.
 sudo mkdir /var/lib/node_exporter
 ```
 
-### Install Prometheus
+### Install Node Exporter
 
 Now for the fun part!  You can view the **latest** Node Exporter downloads and pick the one you need on the official page: 
 [Node Exporter download page](https://prometheus.io/download/#node_exporter).

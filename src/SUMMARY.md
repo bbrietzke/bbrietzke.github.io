@@ -25,6 +25,7 @@
 - [Introduction](hard_way/README.md)
     - [N8N the hard way](hard_way/n8n_install_with_postgresql.md)
     - [Network Storage](hard_way/network_storage.md)
+    - [Network Storage - iSCSI](hard_way/network_storage_iscsi.md)
 
 
 # Runbooks

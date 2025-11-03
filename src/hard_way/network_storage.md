@@ -1,29 +1,28 @@
 # Network Attached Storage
 
-So, yes there are plenty of network attached storage solutions out there, for free and open source.  So 
-why would we want to do it the hard way?
+There are plenty of network‑attached storage solutions out there, both free and open source. 
+But why would we want to build one from scratch? 
 
-I think it's a good idea to understand how those tools work and why.  It also allows for customization 
-that you can't find inside those tools.
+Understanding how these tools work gives you insight into their inner workings and opens the door to customisations that off‑the‑shelf solutions can’t provide.
 
-## Starting with SAMBA
+## Starting with Samba
 
-I prefer to run on Ubuntu, so I'm using the current LTS ( 24.04.3 ) for this.  The server name is ```vault```.
+I prefer to run on Ubuntu, so I’m using the current LTS (24.04.3) for this guide. 
+The server is named **vault**.
 
-Also start with 
+First, update the system:
 
 ```bash
-sudo apt update && sudo apt -y full-ugprade
+sudo apt update && sudo apt -y full-upgrade
 ```
 
-Now let's create the parent directories
+Next, create the parent directories:
+
 ```bash
-sudo mkdir -p /srv/{samba,nfs,iscsi}
+sudo mkdir -p /srv/{samba,nfs}
 ```
 
-### Install SAMBA
-
-We'll start with Samba, and maybe it's all you need.  It serves Windows and macOS clients equally well and with some effort it works with Linux.
+### Install Samba
 
 ```bash
 sudo apt install -y samba
@@ -35,13 +34,15 @@ sudo apt install -y samba
 sudo mkdir -p /srv/samba/{public,ISOs}
 ```
 
-### Edit Configuration
+### Edit the configuration
+
+Open the Samba configuration file:
 
 ```bash
 sudo vi /etc/samba/smb.conf
 ```
 
-Find the location under shared directories
+Add the following sections (replace or append as appropriate):
 
 ```
 [homes]
@@ -71,22 +72,85 @@ Find the location under shared directories
   guest ok = yes
 ```
 
-### User Accounts
+> **Tip:** Granting `guest ok = yes` allows unauthenticated access. Use it only for truly public data.
+
+### Add user accounts
 
 ```bash
 sudo smbpasswd -a $USER
 ```
 
-### Restart Services
+### Restart services
 
-You will need to restart services anytime you add a share or a new user.
+Restart the Samba daemons whenever you add a share or create a new user:
 
 ```bash
 sudo systemctl restart smbd nmbd
 ```
 
-### Open Firewall
+### Open the firewall
 
 ```bash
 sudo ufw allow samba
 ```
+
+## NFS Installation
+
+```bash
+sudo apt install nfs-kernel-server
+```
+
+### Create shared directories
+
+```bash
+sudo mkdir -p /srv/nfs/{common,k8s}
+```
+
+### Setup permissions
+
+```bash
+sudo chown -R nobody:nogroup /srv/nfs/
+sudo chmod -R 777 /srv/nfs/
+```
+
+> **Caution:** `chmod 777` gives read/write/execute permissions to everyone. Adjust this to a more restrictive policy if needed.
+
+### Edit the NFS export list
+
+Open `/etc/exports`:
+
+```bash
+sudo vi /etc/exports
+```
+
+Add the following lines (modify subnets as appropriate):
+
+```
+/srv/nfs/common 192.168.1.0/24(rw,sync,no_subtree_check,no_root_squash)
+/srv/nfs/k8s 10.0.0.0/26(rw,sync,no_subtree_check,no_root_squash)
+```
+
+### Export the shares
+
+```bash
+sudo exportfs -a
+```
+
+### Restart the NFS service
+
+```bash
+sudo systemctl restart nfs-kernel-server
+```
+
+### Configure firewall rules
+
+Adjust for your network.
+
+```bash
+sudo ufw allow from 192.168.1.0/24 to any port nfs
+sudo ufw allow from 10.0.0.0/26 to any port nfs
+```
+
+---
+
+*For more detailed information, refer to the [Samba documentation](https://www.samba.org/samba/docs/) and the [NFS manual pages](https://manpages.ubuntu.com/manpages/jammy/man5/exports.5.html).*
