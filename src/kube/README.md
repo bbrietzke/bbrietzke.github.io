@@ -16,5 +16,5 @@ the mess every couple of months and I usually forget something along the way!
 * [Certificate Manager](certmanager.md)
 
 ## Extras
-* [Scheduling on the Control Plane](schedule_on_cp.md)
-* [N8N Installation](install_n8n.md)
+* [Scheduling on the Control Plane](extras/schedule_on_cp.md)
+* [N8N Installation](extras/install_n8n.md)
