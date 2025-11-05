@@ -43,7 +43,7 @@ sudo modprobe overlay && sudo modprobe br_netfilter && sudo sysctl --system
 Let's install __containerd__.
 ```
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/docker.gpg && \
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
+sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
 sudo apt update && \
 sudo apt install -y containerd.io
 ```
