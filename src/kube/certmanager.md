@@ -13,7 +13,7 @@ There are a number of ancilliary resources that have to be installed.  You can d
 
 ```
 helm install \
-  cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.11.0 --set installCRDs=true
+  cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --set installCRDs=true
 ```
 
 Go over [verify section on the official docs](https://cert-manager.io/docs/installation/verify/) to make sure it's working.
