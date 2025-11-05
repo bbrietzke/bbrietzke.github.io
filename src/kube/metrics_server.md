@@ -15,6 +15,19 @@ The metrics pod just never becomes ready and then logs complain about SSL certif
 
 ## Cheating and Being Insecure
 
-The easiest option is to add ```--kubelet-insecure-tls``` to the spec.container.args array.  I added it as the last one.
+The way I get the metrics server installed is to cheat a little.  I tell it to ignore tls verfication
+and magically things just work!
 
-You can make this edit either in the deployment or prior to doing a ```kubectl apply``` if you download the manifest files.
+### How to do it
+
+```bash
+wget https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+```
+
+Then add `--kubelet-insecure-tls` to spec.template.spec.containers.args.
+
+#### Install
+
+```bash
+kubectl apply -f components.yaml
+```

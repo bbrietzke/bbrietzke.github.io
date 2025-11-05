@@ -15,19 +15,42 @@ helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/
 Then always pull the values, since you will need to customize the NFS server IP and path
 
 ```
-helm show values nfs-subdir-external-provisioner/nfs-subdir-external-provisioner
+helm show values nfs-subdir-external-provisioner/nfs-subdir-external-provisioner > values.yaml
 ```
 
 An example customized one looks like the following:
 
-```
+```yaml
 nfs:
-  server: 10.0.0.155
-  path: /srv/nfs_shares/kubernetes
+  server: 192.168.2.70
+  path: /srv/nfs/k8s
+storageClass:
+  create: true
+  name: nfs-client
+  defaultClass: true
+tolerations:
+  - key: "node-role.kubernetes.io/control-plane"
+    operator: "Equal"
+    effect: "NoSchedule"
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: node-role.kubernetes.io/control-plane
+          operator: Exists
+resources:
+  limits:
+   cpu: 200m
+   memory: 256Mi
+  requests:
+   cpu: 100m
+   memory: 128Mi
 ```
 
 And of course, we have to provision:
 
 ```
-helm install -f nfs_prov.yml nfs-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner -n infra
+kubectl create namespace nfs-subdir
+helm upgrade -i -f values.yaml nfs nfs-subdir-external-provisioner/nfs-subdir-external-provisioner --namespace nfs-subdir
 ```

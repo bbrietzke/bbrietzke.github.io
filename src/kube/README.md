@@ -9,6 +9,12 @@ the mess every couple of months and I usually forget something along the way!
 * [Installation](installation.md)
 * [Local Setup](local_setup.md)
 * [Add Worker Node](add_worker.md)
-* [Certificate Manager](certmanager.md)
+* [Add a Load Balancer](install_metallb.md)
+* [Adding Traefik](traefik_setup.md)
 * [NFS Provisioner](nfs_provisioner.md)
 * [Metrics Server](metrics_server.md)
+* [Certificate Manager](certmanager.md)
+
+## Extras
+* [Scheduling on the Control Plane](schedule_on_cp.md)
+* [N8N Installation](install_n8n.md)
