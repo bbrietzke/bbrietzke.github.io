@@ -94,7 +94,8 @@ To enable authentication:
 
 ```bash
 cd ../
-set attribute generate_node_acls=1
+set attribute generate_node_acls=0
+set attribute demo_mode_write_protect=0
 set attribute authentication=1
 set auth userid=your_username
 set auth password=your_secret_password

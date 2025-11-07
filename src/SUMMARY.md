@@ -12,6 +12,7 @@
     - [NFS Provisioner](kube/nfs_provisioner.md)
     - [Metrics Server](kube/metrics_server.md)
     - [Certificate Manager](kube/certmanager.md)
+    - [PostgreSQL](cnpg.md)
 
 # Linux
 - [Introduction](linux/README.md)
@@ -32,4 +33,4 @@
 
 # Runbooks
 - [Introduction](runbooks/README.md)
-    - [PostgreSQL Database/User](runbooks/postgresql_create_database_user.md)
+    - [PostgreSQL Database/User Creation](runbooks/postgresql_create_database_user.md)

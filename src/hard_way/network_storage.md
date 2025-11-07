@@ -97,7 +97,7 @@ sudo ufw allow samba
 ## NFS Installation
 
 ```bash
-sudo apt install nfs-kernel-server
+sudo apt install -y nfs-kernel-server
 ```
 
 ### Create shared directories
@@ -110,10 +110,8 @@ sudo mkdir -p /srv/nfs/{common,k8s}
 
 ```bash
 sudo chown -R nobody:nogroup /srv/nfs/
-sudo chmod -R 777 /srv/nfs/
+sudo chmod -R 755 /srv/nfs/
 ```
-
-> **Caution:** `chmod 777` gives read/write/execute permissions to everyone. Adjust this to a more restrictive policy if needed.
 
 ### Edit the NFS export list
 

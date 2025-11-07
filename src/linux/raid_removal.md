@@ -19,13 +19,13 @@ The output should list any arrays you have built and indicate their current stat
 Now let's stop the arrays.
 
 ```bash
-mdadm --stop /dev/md127  # or whatever was returned above
+sudo mdadm --stop /dev/md127  # or whatever was returned above
 ```
 
 Once the arrays are stopped, we can zero out the superblocks so the disks are clean.
 
 ```bash
-mdadm --zero-superblock /dev/sda /dev/sdb /dev/sdc /dev/sdd
+sudo mdadm --zero-superblock /dev/sda /dev/sdb /dev/sdc /dev/sdd
 ```
 
 ## Trust, but Verify

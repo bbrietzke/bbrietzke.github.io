@@ -21,6 +21,4 @@ or
 ```
 
 
-```
-https://documentation.ubuntu.com/server/how-to/sssd/with-active-directory/index.html
-```
+[Documentation Source](https://documentation.ubuntu.com/server/how-to/sssd/with-active-directory/index.html)

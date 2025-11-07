@@ -6,14 +6,15 @@ This document is just a reshash/shorten view with my specific configuration.  Yo
 ## Installation
 ### Helm
 ```
-helm repo add jetstack https://charts.jetstack.io && helm repo update
+helm repo add jetstack https://charts.jetstack.io
+helm repo update
 ```
 
 There are a number of ancilliary resources that have to be installed.  You can do it manually, or let the helm chart do it ( which is what I did ).
 
 ```
 helm install \
-  cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --set installCRDs=true
+  cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace 
 ```
 
 Go over [verify section on the official docs](https://cert-manager.io/docs/installation/verify/) to make sure it's working.
