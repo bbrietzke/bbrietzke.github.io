@@ -72,7 +72,7 @@ sudo apt install -y kubelet kubeadm kubectl
 ### Step Five: Kubeadm Execution
 Now for the part that we've all been waiting for! The prerequisites are in place so now it's time to get kubernetes up and running.
 ```
-sudo kubeadm init
+sudo kubeadm init --apiserver-advertise-address=10.0.0.9 --pod-network-cidr=10.250.0.0/16 --service-cidr=172.16.0.0/24
 ```
 
 This will take a little while to run.

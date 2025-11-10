@@ -26,6 +26,7 @@ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.15.2/confi
 
 ### Address Pool
 ```yaml
+---
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:

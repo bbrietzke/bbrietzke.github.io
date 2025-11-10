@@ -20,9 +20,9 @@ sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
 
 ```bash
 cd /etc/netplan
-sudo touch 01-netcfg.yaml
-sudo chmod 600 01-netcfg.yaml
-sudo vi 01-netcfg.yaml
+sudo touch 99-netcfg.yaml
+sudo chmod 600 99-netcfg.yaml
+sudo vi 99-netcfg.yaml
 ```
 
 2. **Add the following YAML content**

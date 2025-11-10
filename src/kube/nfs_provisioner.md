@@ -21,6 +21,7 @@ helm show values nfs-subdir-external-provisioner/nfs-subdir-external-provisioner
 An example customized one looks like the following:
 
 ```yaml
+---
 nfs:
   server: 192.168.2.70
   path: /srv/nfs/k8s
