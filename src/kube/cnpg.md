@@ -11,7 +11,11 @@ kubectl apply -f  https://raw.githubusercontent.com/cloudnative-pg/cloudnative-p
 
 ## The Actual Cluster
 
-You will want to use a good and fast network attached storage to keep database performance high.
+You will want to use a good and fast network attached storage to keep database performance high. I'm using iSCIS here.
+
+```bash
+kubectl create namespace db
+```
 
 ```yaml
 ---
@@ -31,8 +35,8 @@ spec:
   resources:
     requests:
       memory: "1024Mi"
-      cpu: 500
+      cpu: 500m
     limits:
       memory: "4096Mi"
-      cpu: 2000
+      cpu: 2000m
 ```

@@ -12,7 +12,7 @@
     - [NFS Provisioner](kube/nfs_provisioner.md)
     - [Metrics Server](kube/metrics_server.md)
     - [Certificate Manager](kube/certmanager.md)
-    - [PostgreSQL](cnpg.md)
+    - [PostgreSQL](kube/cnpg.md)
 
 # Linux
 - [Introduction](linux/README.md)

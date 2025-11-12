@@ -26,7 +26,7 @@ spec:
   storageClassName: iscsi
   iscsi:
     targetPortal: 192.168.2.70:3260
-    iqn: iqn.2025-11.work.faultycloud:storage
+    iqn: iqn.2025-11.work.faultycloud:ssd
     lun: 0
     fsType: ext4
     readOnly: false
@@ -48,7 +48,7 @@ spec:
   storageClassName: iscsi
   iscsi:
     targetPortal: 192.168.2.70:3260
-    iqn: iqn.2025-11.work.faultycloud:storage
+    iqn: iqn.2025-11.work.faultycloud:ssd
     lun: 1
     fsType: ext4
     readOnly: false
@@ -70,7 +70,7 @@ spec:
   storageClassName: iscsi
   iscsi:
     targetPortal: 192.168.2.70:3260
-    iqn: iqn.2025-11.work.faultycloud:storage
+    iqn: iqn.2025-11.work.faultycloud:ssd
     lun: 2
     fsType: ext4
     readOnly: false
@@ -92,7 +92,7 @@ spec:
   storageClassName: iscsi
   iscsi:
     targetPortal: 192.168.2.70:3260
-    iqn: iqn.2025-11.work.faultycloud:storage
+    iqn: iqn.2025-11.work.faultycloud:ssd
     lun: 3
     fsType: ext4
     readOnly: false
@@ -114,7 +114,7 @@ spec:
   storageClassName: iscsi
   iscsi:
     targetPortal: 192.168.2.70:3260
-    iqn: iqn.2025-11.work.faultycloud:storage
+    iqn: iqn.2025-11.work.faultycloud:ssd
     lun: 4
     fsType: ext4
     readOnly: false
