@@ -24,7 +24,7 @@ metadata:
   name: n8n-ingress
   namespace: n8n 
 spec:
-  ingressClassName: haproxy 
+  ingressClassName: traefik 
   tls:
     - hosts:
         - workflow.faultycloud.io 
