@@ -1,5 +1,7 @@
 
 
+The YAML files where sourced [from here](https://github.com/n8n-io/n8n-hosting).
+
 ```
  kubectl apply -f namespace.yaml
  kubectl apply -f postgres-configmap.yaml

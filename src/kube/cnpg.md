@@ -30,7 +30,7 @@ spec:
     parameters:
       shared_buffers: "256MB"
   storage:
-    size: 10G
+    size: 50G
     storageClass: iscsi
   resources:
     requests:

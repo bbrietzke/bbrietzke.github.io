@@ -31,3 +31,9 @@ Then add `--kubelet-insecure-tls` to spec.template.spec.containers.args.
 ```bash
 kubectl apply -f components.yaml
 ```
+
+
+### The fix
+
+[the fix is in!](https://medium.com/@kubelet/dont-kubelet-insecure-tls-a9b8b16e8c67)
+[Also discusssed Here!](https://www.zeng.dev/post/2023-kubeadm-enable-kubelet-serving-certs/)

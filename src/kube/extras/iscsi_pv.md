@@ -19,14 +19,14 @@ metadata:
   name: volume00
 spec:
   capacity:
-    storage: 20G
+    storage: 50G
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: iscsi
   iscsi:
     targetPortal: 192.168.2.70:3260
-    iqn: iqn.2025-11.work.faultycloud:ssd
+    iqn: iqn.2025-11.work.faultycloud:storage
     lun: 0
     fsType: ext4
     readOnly: false
@@ -48,7 +48,7 @@ spec:
   storageClassName: iscsi
   iscsi:
     targetPortal: 192.168.2.70:3260
-    iqn: iqn.2025-11.work.faultycloud:ssd
+    iqn: iqn.2025-11.work.faultycloud:storage
     lun: 1
     fsType: ext4
     readOnly: false
@@ -70,7 +70,7 @@ spec:
   storageClassName: iscsi
   iscsi:
     targetPortal: 192.168.2.70:3260
-    iqn: iqn.2025-11.work.faultycloud:ssd
+    iqn: iqn.2025-11.work.faultycloud:storage
     lun: 2
     fsType: ext4
     readOnly: false
@@ -92,7 +92,7 @@ spec:
   storageClassName: iscsi
   iscsi:
     targetPortal: 192.168.2.70:3260
-    iqn: iqn.2025-11.work.faultycloud:ssd
+    iqn: iqn.2025-11.work.faultycloud:storage
     lun: 3
     fsType: ext4
     readOnly: false
@@ -107,14 +107,14 @@ metadata:
   name: volume04
 spec:
   capacity:
-    storage: 50G
+    storage: 20G
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: iscsi
   iscsi:
     targetPortal: 192.168.2.70:3260
-    iqn: iqn.2025-11.work.faultycloud:ssd
+    iqn: iqn.2025-11.work.faultycloud:storage
     lun: 4
     fsType: ext4
     readOnly: false
