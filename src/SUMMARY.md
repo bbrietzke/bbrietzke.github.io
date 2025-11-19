@@ -13,6 +13,7 @@
     - [Metrics Server](kube/metrics_server.md)
     - [Certificate Manager](kube/certmanager.md)
     - [PostgreSQL](kube/cnpg.md)
+    - [Redis](kube/redis-operator.md)
 
 # Linux
 - [Introduction](linux/README.md)

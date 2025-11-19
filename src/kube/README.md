@@ -15,6 +15,7 @@ the mess every couple of months and I usually forget something along the way!
 * [Metrics Server](metrics_server.md)
 * [Certificate Manager](certmanager.md)
 * [PostgreSQL](cnpg.md)
+* [Redis](redis-operator.md)
 
 ## Extras
 * [Scheduling on the Control Plane](extras/schedule_on_cp.md)
