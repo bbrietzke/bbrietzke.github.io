@@ -34,7 +34,7 @@ a copy of the kube config file from the control-plane.
 
 ```
 mkdir ~/.kube
-scp ubuntu@basil.local:.kube/config ~/.kube/config
+scp ubuntu@kubernetes-host.local:.kube/config ~/.kube/config
 ```
 
 This configures both **k9s** and **kubectl**, so that bit is done.  Both of the tools should work as you would expect.
