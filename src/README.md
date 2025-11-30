@@ -7,3 +7,4 @@ I don't like blogging, much to much like trying to keep a journal or a dairy ( n
 If others find my documents and notes of interest, then that's great.  That is not the reason why I'm doing this though.
 
 If folks have suggestions or corrections, then great!  Create a fork, branch and submit a PR.  I don't mind being corrected and giving credit where credit is due.  I'm not right all the time and there are much more knowledgable folks out there then me.
+
