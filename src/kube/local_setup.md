@@ -25,7 +25,7 @@ sudo apt-get install helm
 
 ### K9S
 
-(K9S Github Releases)[https://github.com/derailed/k9s/releases] and choose the one that is approriate for your platform.
+[K9S Github Releases](https://github.com/derailed/k9s/releases) and choose the one that is approriate for your platform.
 
 ## Configuration
 ### Kubernetes Tools
