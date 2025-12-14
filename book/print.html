@@ -1,0 +1,1378 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-466eb3bb.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-e12d2167.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="introductions"><a class="header" href="#introductions">Introductions</a></h1>
+<p>So this is my collection of thoughts, ideas and craziness documented for everyone to see.  I have a lot of different interests that I cycle through irregularly.  It’s hard to keep track of the bits and pieces so I figure I should write some of this down.</p>
+<p>I don’t like blogging, much to much like trying to keep a journal or a dairy ( not that there is anything wrong in that ).  Instead I have specific, task-focused documents that I want to keep around so that when I revisit a topic, I can pick up where I left off.</p>
+<p>If others find my documents and notes of interest, then that’s great.  That is not the reason why I’m doing this though.</p>
+<p>If folks have suggestions or corrections, then great!  Create a fork, branch and submit a PR.  I don’t mind being corrected and giving credit where credit is due.  I’m not right all the time and there are much more knowledgable folks out there then me.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="kubernetes"><a class="header" href="#kubernetes">Kubernetes</a></h1>
+<p><a href="https://kubernetes.io/">Kubernetes</a> is a big deal, and is something that I enjoy using.</p>
+<p>I have decided to document my kubernetes setup so that other folks can follow along and see what I have
+going on, and maybe learn a thing or two along the way.  It is also documented because I tend to rebuild
+the mess every couple of months and I usually forget something along the way!</p>
+<h2 id="order-of-operations"><a class="header" href="#order-of-operations">Order of Operations</a></h2>
+<ul>
+<li><a href="#installing-kubernetes">Installation</a></li>
+<li><a href="#local-setup">Local Setup</a></li>
+<li><a href="#adding-a-worker-node">Add Worker Node</a></li>
+<li><a href="#install-metallb">Add a Load Balancer</a></li>
+<li><a href="#traefik-setup">Adding Traefik</a></li>
+<li><a href="#nfs-persistent-volumes">NFS Provisioner</a></li>
+<li><a href="#metrics-server">Metrics Server</a></li>
+<li><a href="#managing-certificates-in-kubernetes">Certificate Manager</a></li>
+<li><a href="#cloud-native-postgresql">PostgreSQL</a></li>
+<li><a href="#redis-operator">Redis</a></li>
+</ul>
+<h2 id="extras"><a class="header" href="#extras">Extras</a></h2>
+<ul>
+<li><a href="kube/extras/schedule_on_cp.html">Scheduling on the Control Plane</a></li>
+<li><a href="kube/extras/install_n8n.html">N8N Installation</a></li>
+</ul>
+<h2 id="pi-burnetes"><a class="header" href="#pi-burnetes">Pi-Burnetes</a></h2>
+<ul>
+<li><a href="kube/piburnetes/README.html">Overview</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="installing-kubernetes"><a class="header" href="#installing-kubernetes">Installing Kubernetes</a></h1>
+<p>This is for a single host installation.  I’ll include instructions for adding an additional host down the line if you are so inclined.</p>
+<p>I have consolidated a number of different documents, mostly for the troubleshooting.</p>
+<h2 id="setup"><a class="header" href="#setup">Setup</a></h2>
+<p>This is for installation on an Ubuntu 24.04 LTS machine.  I would recommend a machine with at least 8GiB of RAM, 16GiB of hard drive space and at least two cores.  The more the better things will run and the more stuff you can cram into Kubernetes.</p>
+<p>Make sure your server is up to date before we get started.</p>
+<pre><code>sudo apt update &amp;&amp; sudo apt full-upgrade -y 
+</code></pre>
+<h2 id="step-by-step"><a class="header" href="#step-by-step">Step By Step</a></h2>
+<h3 id="step-one-disable-swap"><a class="header" href="#step-one-disable-swap">Step One: Disable Swap</a></h3>
+<p><strong>Kubeadm</strong> will complain if swap is enabled, so let’s disable able that.</p>
+<pre><code>sudo swapoff -a
+</code></pre>
+<h3 id="step-two-kernel-parameters"><a class="header" href="#step-two-kernel-parameters">Step Two: Kernel Parameters</a></h3>
+<p>There are some parameters that need to be tuned in the linux kernel for Kubernetes to work properly.</p>
+<pre><code>sudo tee /etc/modules-load.d/containerd.conf &lt;&lt; EOF
+overlay
+br_netfilter
+EOF
+</code></pre>
+<pre><code>sudo tee /etc/sysctl.d/kubernetes.conf &lt;&lt; EOF
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+net.ipv4.ip_forward = 1
+net.ipv6.conf.all.forwarding = 1
+EOF
+</code></pre>
+<pre><code>sudo modprobe overlay &amp;&amp; sudo modprobe br_netfilter &amp;&amp; sudo sysctl --system
+</code></pre>
+<h3 id="step-three-container-runtime-installation"><a class="header" href="#step-three-container-runtime-installation">Step Three: Container Runtime Installation</a></h3>
+<p>Let’s install <strong>containerd</strong>.</p>
+<pre><code>sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/docker.gpg &amp;&amp; \
+sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" &amp;&amp; \
+sudo apt update &amp;&amp; \
+sudo apt install -y containerd.io
+</code></pre>
+<p>Need to have a configuration file for <strong>containerd</strong>.  Luckily, we can generate one.</p>
+<pre><code>containerd config default | sudo tee /etc/containerd/config.toml &gt;/dev/null 2&gt;&amp;1 
+sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
+</code></pre>
+<p>Then we’ll need to enable and restart <strong>containerd</strong>.</p>
+<pre><code>sudo systemctl enable containerd &amp;&amp; \
+sudo systemctl restart containerd
+</code></pre>
+<h3 id="step-four-kubernetes-runtime-installation"><a class="header" href="#step-four-kubernetes-runtime-installation">Step Four: Kubernetes Runtime Installation</a></h3>
+<p>This will install kubernetes 1.34 to be installed on the machine.  At the time of writing, it is the most current version.</p>
+<pre><code>curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.34/deb/Release.key | sudo gpg  --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg &amp;&amp; \
+echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.34/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list &amp;&amp; \
+sudo apt update &amp;&amp; \
+sudo apt install -y kubelet kubeadm kubectl
+</code></pre>
+<h3 id="step-five-kubeadm-execution"><a class="header" href="#step-five-kubeadm-execution">Step Five: Kubeadm Execution</a></h3>
+<p>Now for the part that we’ve all been waiting for! The prerequisites are in place so now it’s time to get kubernetes up and running.</p>
+<pre><code>sudo kubeadm init --apiserver-advertise-address=10.0.0.9 --pod-network-cidr=10.250.0.0/16 --service-cidr=172.16.0.0/24
+</code></pre>
+<p>This will take a little while to run.</p>
+<h3 id="step-six-tool-configuration"><a class="header" href="#step-six-tool-configuration">Step Six: Tool Configuration</a></h3>
+<p>Once the installation is complete, you will need to configure <strong>kubectl</strong>.  Execute the following:</p>
+<pre><code>mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+</code></pre>
+<p>This will copy the configuration to your home directory.  This will allow you to use  <strong>kubectl</strong> from anywhere on the system.</p>
+<h3 id="step-seven-remove-the-taints"><a class="header" href="#step-seven-remove-the-taints">Step Seven: Remove the Taints</a></h3>
+<p>This is a single node system, which means that it’s also running as a control panel.  Normally, kubernetes doesn’t want additional pods on the control panel, which makes for an interesting catch-22.  Thankfully, we can fix that.</p>
+<pre><code>kubectl taint nodes --all node-role.kubernetes.io/control-plane-
+</code></pre>
+<h3 id="step-eight-container-networking"><a class="header" href="#step-eight-container-networking">Step Eight: Container Networking</a></h3>
+<p>In order for the node to become <em>ready</em>, it will need networking installed. For simple, one node installs I personally think Calico is perfectly reasonable.</p>
+<pre><code>kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/calico.yaml
+</code></pre>
+<p>It will take a little bit for the networking jitters to settle.</p>
+<h3 id="step-nine-does-it-work"><a class="header" href="#step-nine-does-it-work">Step Nine: Does it work?</a></h3>
+<p>Let’s pull up the cluster information</p>
+<pre><code>kubectl cluster-info
+</code></pre>
+<p>Do all nodes show <strong>READY</strong>?</p>
+<pre><code>kubectl get nodes -o wide
+</code></pre>
+<p>What do the pods look like?</p>
+<pre><code>kubectl get pods -o wide -A
+</code></pre>
+<h3 id="step-ten-install-something"><a class="header" href="#step-ten-install-something">Step Ten: Install Something!</a></h3>
+<p>You can also create a very basic <em>nginx</em> deployment just to see if things work.</p>
+<pre><code>kubectl apply -f https://gist.githubusercontent.com/bbrietzke/c59b6132c37ea36f9b84f1fee701a642/raw/952524cec7892e9db350fc62773c32ddfd9ab867/kubernetes-test.yaml
+</code></pre>
+<p>Then:</p>
+<pre><code>open http://kubernetes-host.local:30081/
+</code></pre>
+<p>And you should see a website in the browser of your choice.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="local-setup"><a class="header" href="#local-setup">Local Setup</a></h1>
+<p>There are some tools that I like to have on my local machine that makes working with Kubernetes much easier.
+This document will go through the installation and configuration of them.</p>
+<h2 id="what-to-install"><a class="header" href="#what-to-install">What to install?</a></h2>
+<p>Since I’m on a Mac, everything is installed through (Homebrew)[https://brew.sh/].</p>
+<pre><code>brew install k9s helm kubernetes-cli
+</code></pre>
+<p>If you want to install on the Linux/Kubernetes host, here are a few options:</p>
+<h3 id="helm"><a class="header" href="#helm">Helm</a></h3>
+<pre><code class="language-bash">sudo apt-get install curl gpg apt-transport-https --yes
+curl -fsSL https://packages.buildkite.com/helm-linux/helm-debian/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg &gt; /dev/null
+echo "deb [signed-by=/usr/share/keyrings/helm.gpg] https://packages.buildkite.com/helm-linux/helm-debian/any/ any main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+sudo apt-get update
+sudo apt-get install helm
+</code></pre>
+<h3 id="k9s"><a class="header" href="#k9s">K9S</a></h3>
+<p><a href="https://github.com/derailed/k9s/releases">K9S Github Releases</a> and choose the one that is approriate for your platform.</p>
+<h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
+<h3 id="kubernetes-tools"><a class="header" href="#kubernetes-tools">Kubernetes Tools</a></h3>
+<p>The only thing that <em>really</em> needs configuration is the kubernetes configuration tools.  For that, you need to get
+a copy of the kube config file from the control-plane.</p>
+<pre><code>mkdir ~/.kube
+scp ubuntu@kubernetes-host.local:.kube/config ~/.kube/config
+</code></pre>
+<p>This configures both <strong>k9s</strong> and <strong>kubectl</strong>, so that bit is done.  Both of the tools should work as you would expect.</p>
+<h3 id="helm-1"><a class="header" href="#helm-1">Helm</a></h3>
+<p>You don’t <em>have</em> to configure <strong>helm</strong>, but it’s not a bad idea either.  My personal chart repository is configured as follows.</p>
+<pre><code>helm repo add bbrietzke http://bbrietzke.github.io/charts
+</code></pre>
+<p>I have a few charts that I tend to use, in particular for setting up namespaces.  I have three, <em>prod</em>, <em>dev</em>, and <em>infra</em>.  There isn’t much else to customize, so this just works.</p>
+<pre><code>helm install namespaces bbrietzke/namespaces
+</code></pre>
+<p>It’s also the first helm chart I created.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="adding-a-worker-node"><a class="header" href="#adding-a-worker-node">Adding a Worker Node</a></h1>
+<p>On the worker node, all you need to do is steps one through four of the installation page.  After installation, execute the following on the control plane node:</p>
+<pre><code>kubeadm token create --print-join-command
+</code></pre>
+<p>Just copy and paste that over to the new worker node and it will do the rest.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="install-metallb"><a class="header" href="#install-metallb">Install MetalLB</a></h1>
+<h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
+<p>Installation instruction can be found <a href="https://metallb.universe.tf/installation/">on there website</a>.</p>
+<h3 id="first"><a class="header" href="#first">First</a></h3>
+<pre><code class="language-bash">kubectl get configmap kube-proxy -n kube-system -o yaml | \
+sed -e "s/strictARP: false/strictARP: true/" | \
+kubectl diff -f - -n kube-system
+
+kubectl get configmap kube-proxy -n kube-system -o yaml | \
+sed -e "s/strictARP: false/strictARP: true/" | \
+kubectl apply -f - -n kube-system
+</code></pre>
+<p>Then:</p>
+<pre><code class="language-bash">kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.15.2/config/manifests/metallb-native.yaml
+</code></pre>
+<h2 id="configuration-1"><a class="header" href="#configuration-1">Configuration</a></h2>
+<h3 id="address-pool"><a class="header" href="#address-pool">Address Pool</a></h3>
+<pre><code class="language-yaml">---
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: primary-pool
+  namespace: metallb-system
+spec:
+  addresses:
+  - 192.168.2.75-192.168.2.80
+</code></pre>
+<h3 id="advertisers"><a class="header" href="#advertisers">Advertisers</a></h3>
+<pre><code class="language-yaml">---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: l2advert-primary
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - primary-pool
+---
+apiVersion: metallb.io/v1beta1
+kind: BGPAdvertisement
+metadata:
+  name: bgpadvert
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - primary-pool
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="traefik-setup"><a class="header" href="#traefik-setup">Traefik Setup</a></h1>
+<h2 id="install"><a class="header" href="#install">Install</a></h2>
+<pre><code class="language-bash">helm repo add traefik https://traefik.github.io/charts &amp;&amp; \
+helm repo update
+</code></pre>
+<h2 id="get-values"><a class="header" href="#get-values">Get Values</a></h2>
+<pre><code class="language-bash">helm show values traefik/traefik &gt; values.yaml
+</code></pre>
+<h2 id="install-1"><a class="header" href="#install-1">Install</a></h2>
+<pre><code class="language-bash">kubectl create namespace traefik
+helm upgrade -i --namespace traefik -f values.yaml traefik traefik/traefik 
+</code></pre>
+<h2 id="my-values-file"><a class="header" href="#my-values-file">My Values File</a></h2>
+<pre><code class="language-yaml">affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: node-role.kubernetes.io/control-plane
+          operator: Exists
+tolerations:
+  - key: "node-role.kubernetes.io/control-plane"
+    operator: "Equal"
+    effect: "NoSchedule"
+providers:
+  kubernetesGateway:
+    enabled: true
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="nfs-persistent-volumes"><a class="header" href="#nfs-persistent-volumes">NFS Persistent Volumes</a></h1>
+<p>Do your pods need to have persitent volumes for your home Kubernetes cluster?  Turns out, NFS is an option</p>
+<p>https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner</p>
+<h2 id="helm-charts"><a class="header" href="#helm-charts">Helm Charts</a></h2>
+<p>You can add the helm chart with:</p>
+<pre><code>helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+</code></pre>
+<p>Then always pull the values, since you will need to customize the NFS server IP and path</p>
+<pre><code>helm show values nfs-subdir-external-provisioner/nfs-subdir-external-provisioner &gt; values.yaml
+</code></pre>
+<p>An example customized one looks like the following:</p>
+<pre><code class="language-yaml">---
+nfs:
+  server: 192.168.2.70
+  path: /srv/nfs/k8s
+storageClass:
+  create: true
+  name: nfs-client
+  defaultClass: true
+tolerations:
+  - key: "node-role.kubernetes.io/control-plane"
+    operator: "Equal"
+    effect: "NoSchedule"
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: node-role.kubernetes.io/control-plane
+          operator: Exists
+resources:
+  limits:
+   cpu: 200m
+   memory: 256Mi
+  requests:
+   cpu: 100m
+   memory: 128Mi
+</code></pre>
+<p>And of course, we have to provision:</p>
+<pre><code>kubectl create namespace nfs-subdir
+helm upgrade -i -f values.yaml nfs nfs-subdir-external-provisioner/nfs-subdir-external-provisioner --namespace nfs-subdir
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="metrics-server"><a href="#metrics-server" class="header">Metrics Server</a></h1>
+<p>Metrics server is not quite as easy to install as advertise, at least on system installed with <code>kubeadm</code>.  But, the fix to make
+it work is pretty simple, assuming you do it the insecure way.</p>
+<p>The correct way is more complicated, but also secure.</p>
+<h2 id="installing"><a class="header" href="#installing">Installing</a></h2>
+<p>The code and instructions to install metrics server <a href="https://github.com/kubernetes-sigs/metrics-server">can be found here</a>.  Again, not repeating them here so they go stale.</p>
+<p>The instructions work perfectly, things get installed and then don’t work.  At all.</p>
+<p>The metrics pod just never becomes ready and then logs complain about SSL certificates being invalid.</p>
+<h2 id="the-right-way-to-install"><a class="header" href="#the-right-way-to-install">The Right Way to Install</a></h2>
+<p>You will need to go to each node and modify the kubelet config file and add a configuration line. That line is
+<code>serverTLSBootstrap: true</code></p>
+<pre><code class="language-bash">sudo vi /var/lib/kubelet/config.yaml
+</code></pre>
+<p>You will then need to either restart the host machine or the kubelet service.</p>
+<p>When the service comes back up, it will request a TLS certificate that the node can communicate with the rest of
+the infrastructure with.  The only thing is you will need to sign the certificate to make it official.  You can sign all
+of the outstanding certificate requests with:</p>
+<pre><code class="language-bash">for kubeletcsr in `kubectl -n kube-system get csr | grep kubernetes.io/kubelet-serving | awk '{ print $1 }'`; do kubectl certificate approve $kubeletcsr; done
+</code></pre>
+<p>Then metrics server will be happy.</p>
+<h2 id="cheating-and-being-insecure"><a class="header" href="#cheating-and-being-insecure">Cheating and Being Insecure</a></h2>
+<p>The way I get the metrics server installed is to cheat a little.  I tell it to ignore tls verfication
+and magically things just work!</p>
+<h3 id="how-to-do-it"><a class="header" href="#how-to-do-it">How to do it</a></h3>
+<pre><code class="language-bash">wget https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+</code></pre>
+<p>Then add <code>--kubelet-insecure-tls</code> to spec.template.spec.containers.args.</p>
+<h4 id="install-2"><a class="header" href="#install-2">Install</a></h4>
+<pre><code class="language-bash">kubectl apply -f components.yaml
+</code></pre>
+<h3 id="the-fix"><a class="header" href="#the-fix">The fix</a></h3>
+<ul>
+<li><a href="https://medium.com/@kubelet/dont-kubelet-insecure-tls-a9b8b16e8c67">the fix is in!</a></li>
+<li><a href="https://www.zeng.dev/post/2023-kubeadm-enable-kubelet-serving-certs/">Also discusssed Here!</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="managing-certificates-in-kubernetes"><a class="header" href="#managing-certificates-in-kubernetes">Managing Certificates in Kubernetes</a></h1>
+<p>Dealing with TLS certificates is a pain in butt!</p>
+<p>This document is just a reshash/shorten view with my specific configuration.  You can find the full documentation over <a href="https://cert-manager.io/">at cert-manager.io</a>.</p>
+<h2 id="installation-1"><a class="header" href="#installation-1">Installation</a></h2>
+<h3 id="helm-2"><a class="header" href="#helm-2">Helm</a></h3>
+<pre><code>kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.19.1/cert-manager.yaml
+</code></pre>
+<p>Go over <a href="https://cert-manager.io/docs/installation/verify/">verify section on the official docs</a> to make sure it’s working.</p>
+<h2 id="configuration-2"><a class="header" href="#configuration-2">Configuration</a></h2>
+<p>You have to create <strong>issuers</strong> per namespace that will actually create and distribute the certificates.  It’s one of those resources that you
+created when you installed the helm charts.</p>
+<h3 id="self-signed"><a class="header" href="#self-signed">Self-Signed</a></h3>
+<p>I created self-signed certificates for my namespaces just because.</p>
+<p>Here is an example CRD:</p>
+<pre><code>apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: dev-selfsigned-issuer
+  namespace: dev
+spec:
+  selfSigned: {}
+</code></pre>
+<p>I’m sure I’ll write up a Helm chart at somepoint with the issuers that I need.</p>
+<h2 id="using-the-certificate-manager"><a class="header" href="#using-the-certificate-manager">Using the Certificate Manager</a></h2>
+<p>The certificates are mostly used by your ingress controllers to prove that the domain is valid and encrypt the communications between
+the origin and the client.  I’m sure that can be used else where, but this is the scenerio that I use them for.</p>
+<p>You will need to modify the ingress resource defination to be similiar to:</p>
+<pre><code>...
+kind: Ingress
+metadata:
+    namespace: dev
+    annotation:
+        cert-manager.io/issuer: dev-selfsigned-issuer
+...
+</code></pre>
+<p>The namespace must match the name of the issuer for that namespace.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="cloud-native-postgresql"><a class="header" href="#cloud-native-postgresql">Cloud Native PostgreSQL</a></h1>
+<p>It’s hard to build modern applications without a database.  I prefer PostgreSQL and this is the
+operator that will help setup a clustered PostgreSQL installation in Kubernetes</p>
+<h2 id="installation-2"><a class="header" href="#installation-2">Installation</a></h2>
+<pre><code class="language-bash">kubectl apply -f  https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.27/releases/cnpg-1.27.1.yaml
+</code></pre>
+<h2 id="the-actual-cluster"><a class="header" href="#the-actual-cluster">The Actual Cluster</a></h2>
+<p>You will want to use a good and fast network attached storage to keep database performance high. I’m using iSCIS here.</p>
+<pre><code class="language-bash">kubectl create namespace db
+</code></pre>
+<pre><code class="language-yaml">---
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: postgresql
+  namespace: db
+spec:
+  instances: 3
+  postgresql:
+    parameters:
+      shared_buffers: "256MB"
+  storage:
+    size: 50G
+    storageClass: iscsi
+  resources:
+    requests:
+      memory: "1024Mi"
+      cpu: 500m
+    limits:
+      memory: "4096Mi"
+      cpu: 2000m
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="redis-operator"><a class="header" href="#redis-operator">Redis Operator</a></h1>
+<p>The Redis operator is a pretty handy operator to have around considering that Redis is
+a pretty popular piece of software</p>
+<p>The complete documentation can be (found over here)[https://github.com/OT-CONTAINER-KIT/redis-operator].</p>
+<h2 id="installation-3"><a class="header" href="#installation-3">Installation</a></h2>
+<p>Setup the helm chart.</p>
+<pre><code class="language-bash">helm repo add redis-ot https://ot-container-kit.github.io/helm-charts/
+</code></pre>
+<p>Install the operator.</p>
+<pre><code class="language-bash">kubectl create namespace redis-system
+helm upgrade -i redis-operator redis-ot/redis-operator --namespace redis-system
+</code></pre>
+<h2 id="create-a-redis-instance"><a class="header" href="#create-a-redis-instance">Create a Redis instance</a></h2>
+<p>I’ve only create standalone instances for individual namespaces. I haven’t tried to work through
+a cluster installation or how that would work.</p>
+<p>Here is an example of a stand alone instance example.</p>
+<pre><code class="language-yaml">apiVersion: redis.redis.opstreelabs.in/v1beta2
+kind: Redis
+metadata:
+  name: redis-example
+  namespace: default
+spec:
+  kubernetesConfig:
+    image: quay.io/opstree/redis:latest
+    imagePullPolicy: IfNotPresent
+  storage:
+    volumeClaimTemplate:
+      spec:
+        storageClassName: standard
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
+  podSecurityContext:
+    runAsUser: 1000
+    fsGroup: 1000
+</code></pre>
+<p>This will setup a redis instance and services to point to the instance.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="build-slurm-on-alma-linux-9"><a class="header" href="#build-slurm-on-alma-linux-9">Build SLURM on Alma Linux 9</a></h1>
+<p>Slurm (Simple Linux Utility for Resource Management) is a powerful, open-source workload manager for Linux clusters, scheduling and allocating resources (CPUs, GPUs, memory) for parallel jobs, essential for High-Performance Computing (HPC) and AI workloads, allowing users to submit jobs for efficient execution on shared systems.</p>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>This is a basic outline of building the software that will power the system.</p>
+<h2 id="pre-requistes"><a class="header" href="#pre-requistes">Pre-Requistes</a></h2>
+<ul>
+<li>A machine with <a href="https://almalinux.org/get-almalinux/">Alma Linux 9</a> already installed</li>
+</ul>
+<h2 id="steps"><a class="header" href="#steps">Steps</a></h2>
+<ol>
+<li>
+<p>Install <code>wget</code> and download the latest source code.  The latest version of the source code can be <a href="https://www.schedmd.com/download-slurm/">found here</a>.</p>
+<pre><code class="language-bash">sudo dnf install -y wget
+wget https://download.schedmd.com/slurm/slurm-25.11.0.tar.bz2
+</code></pre>
+</li>
+<li>
+<p>Install build pre-requistes.</p>
+<pre><code class="language-bash">sudo dnf install -y epel-release
+sudo dnf install -y rpm-build autoconf automake gcc make mariadb-devel munge-devel munge-libs pam-devel \
+perl-Switch perl-ExtUtils-MakeMaker perl-devel pmix pmix-devel readline-devel hdf5 hdf5-devel lua lua-devel \
+rrdtool-devel openssl openssl-devel libssh2-devel hwloc hwloc-devel ncurses-devel man2html libibmad libibumad 
+
+sudo dnf config-manager --set-enabled crb
+sudo dnf install -y http-parser-devel json-c-devel
+</code></pre>
+</li>
+<li>
+<p>Build RPMs.  This may take a while.</p>
+<pre><code class="language-bash">rpmbuild --with slurmrestd --with pmix --with hdf5 -ta slurm-25.11.0.tar.bz2
+</code></pre>
+</li>
+<li>
+<p>The build and packaged RPMs will be located at <code>$HOME\rpmbuild</code> and can be copied to any destination that you
+would like.</p>
+</li>
+</ol>
+<h2 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h2>
+<ul>
+<li>You may need additional development libraries for different SLURM versions.  The RPMBuild process has
+a dialog that will tell you what you are missing.  Install the missing libraries using <code>dnf</code>.</li>
+</ul>
+<h2 id="completion-and-verification"><a class="header" href="#completion-and-verification">Completion and Verification</a></h2>
+<ul>
+<li>Verify that there where no errors during the build process.</li>
+<li>Verify that the RPMs are located at <code>$HOME/rpmbuild/RPMS/x86_64</code>.</li>
+</ul>
+<h2 id="contacts"><a class="header" href="#contacts">Contacts</a></h2>
+<h2 id="appendix"><a class="header" href="#appendix">Appendix</a></h2>
+<h3 id="references"><a class="header" href="#references">References</a></h3>
+<ul>
+<li><a href="https://github.com/AlmaLinux/sig-HPCAI/tree/master/slurm">Alma Linux/sig-HPCAI</a></li>
+</ul>
+<h3 id="changelog"><a class="header" href="#changelog">Changelog</a></h3>
+<ul>
+<li>2025/12/14 - Created</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="introduction-1"><a href="#introduction-1" class="header">Introduction</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="raid-arrays"><a class="header" href="#raid-arrays">RAID Arrays</a></h1>
+<p>Let’s build a few different kinds of RAID arrays and then use them.</p>
+<p>I’m not going to go into detail about what RAID is or the different levels, since there is plenty of documentation out there already. These are the commands to set up software RAID for Linux and the general workflow to follow.</p>
+<h2 id="do-we-have-any-now"><a class="header" href="#do-we-have-any-now">Do we have any now?</a></h2>
+<p>Let’s double‑check the current RAID state.</p>
+<pre><code class="language-bash">cat /proc/mdstat
+</code></pre>
+<h2 id="which-devices"><a class="header" href="#which-devices">Which Devices?</a></h2>
+<p>Insert the new drives into the machine. You should know what they come up as, but if you don’t, try:</p>
+<pre><code class="language-bash">lsblk
+</code></pre>
+<p>That should give you a list of all the block devices on the system and where they are being used. Some of them may not make sense at first glance, but you should see the ones you just added. If needed, run the command and copy down the results. Then insert the drives and execute it again.</p>
+<p>I will be using the following devices:</p>
+<pre><code class="language-bash">/dev/sda
+/dev/sdb
+/dev/sdc
+/dev/sdd
+</code></pre>
+<h2 id="create-the-arrays"><a class="header" href="#create-the-arrays">Create the Arrays!</a></h2>
+<h3 id="raid-0"><a class="header" href="#raid-0">RAID 0</a></h3>
+<p>We’ll start with RAID 0, which allows us to use all the drives as one big (though not redundant) block device.</p>
+<pre><code class="language-bash">sudo mdadm --create --verbose /dev/md0 \
+  --level=raid0 --raid-devices=4 \
+  /dev/sda /dev/sdb /dev/sdc /dev/sdd
+</code></pre>
+<h3 id="raid-1"><a class="header" href="#raid-1">RAID 1</a></h3>
+<p>Simple mirroring. The easiest to use, a decent redundancy package, and not all that wasteful.</p>
+<pre><code class="language-bash">sudo mdadm --create --verbose /dev/md1 \
+  --level=raid1 --raid-devices=2 \
+  /dev/sda /dev/sdb
+</code></pre>
+<h3 id="raid-5"><a class="header" href="#raid-5">RAID 5</a></h3>
+<p>Probably the best all‑around choice. It gives the best use of capacity and good performance.</p>
+<pre><code class="language-bash">sudo mdadm --create --verbose /dev/md2 \
+  --level=raid5 --raid-devices=4 \
+  /dev/sda /dev/sdb /dev/sdc /dev/sdd
+</code></pre>
+<h2 id="create-the-filesystem"><a class="header" href="#create-the-filesystem">Create the FileSystem</a></h2>
+<pre><code class="language-bash">sudo mkfs -t ext4 /dev/md0
+</code></pre>
+<h2 id="mounting"><a class="header" href="#mounting">Mounting</a></h2>
+<p>You should have these drives come up every time you want to use them, so add the entries to <code>/etc/fstab</code>.</p>
+<p>First, obtain the UUID of the array.</p>
+<pre><code class="language-bash">sudo blkid /dev/md0
+</code></pre>
+<p>Take the UUID and add the following line to <code>/etc/fstab</code> (adjust the mount point and options as needed):</p>
+<pre><code class="language-bash">UUID=655d2d3e-ab31-49c7-9cc3-583ec81fd316 /srv ext4 defaults 0 0
+</code></pre>
+<p>Then run:</p>
+<pre><code class="language-bash">sudo mount -a
+</code></pre>
+<p>and the array should appear at the desired location.</p>
+<h2 id="update-configuration"><a class="header" href="#update-configuration">Update Configuration</a></h2>
+<pre><code class="language-bash">sudo mdadm --detail --scan | sudo tee -a /etc/mdadm/mdadm.conf
+</code></pre>
+<p>Then update the initramfs so that the RAID arrays are recognised at boot:</p>
+<pre><code class="language-bash">sudo update-initramfs -u
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="destroying-raid-arrays"><a class="header" href="#destroying-raid-arrays">Destroying RAID Arrays</a></h1>
+<p>You create RAID drives, so you should know how to tear them down.</p>
+<p>So we built a few RAID arrays and mounted them—now let’s tear them down.</p>
+<h2 id="unmount-everything"><a class="header" href="#unmount-everything">Unmount everything</a></h2>
+<p>Make sure you have the arrays unmounted from their normal (or abnormal) paths. If you don’t, much of this will not work as intended.</p>
+<h2 id="check-mdstat"><a class="header" href="#check-mdstat">Check mdstat</a></h2>
+<p>Let’s see which arrays we currently have configured.</p>
+<pre><code class="language-bash">cat /proc/mdstat
+</code></pre>
+<p>The output should list any arrays you have built and indicate their current state. In this case, we need to know the names of the arrays so that we can remove them.</p>
+<h2 id="remove-arrays"><a class="header" href="#remove-arrays">Remove Arrays</a></h2>
+<p>Now let’s stop the arrays.</p>
+<pre><code class="language-bash">sudo mdadm --stop /dev/md127  # or whatever was returned above
+</code></pre>
+<p>Once the arrays are stopped, we can zero out the superblocks so the disks are clean.</p>
+<pre><code class="language-bash">sudo mdadm --zero-superblock /dev/sda /dev/sdb /dev/sdc /dev/sdd
+</code></pre>
+<h2 id="trust-but-verify"><a class="header" href="#trust-but-verify">Trust, but Verify</a></h2>
+<p>Rerun <code>cat /proc/mdstat</code> and make sure those arrays are gone.</p>
+<pre><code class="language-bash">cat /proc/mdstat
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="custom-host-publishing"><a class="header" href="#custom-host-publishing">Custom Host Publishing</a></h1>
+<p>If you’re like me, you probably have <strong>AVAHI</strong> running on all your servers just to make name resolution simplier.  What you <em>probably</em> didn’t know is you can do some neat tricks with Avahi.</p>
+<h2 id="neat-trick-number-one"><a class="header" href="#neat-trick-number-one">Neat Trick Number One</a></h2>
+<p>There is a command call <code>avahi-publish</code> that will publish a hostname on your network.  This is pretty cool, because it means you don’t have to remember to add the hostname to your hosts file.  It also means you can use this to publish a hostname on a server that doesn’t have Avahi installed.</p>
+<p>For example:</p>
+<pre><code>avahi-publish -a -R pandora.local 192.168.1.10 # or what-ever IP address that you want...
+</code></pre>
+<p>Now you can <code>ping pandora.local</code> and it will respond!</p>
+<p>What good is this? Imagine giving your router an avahi registered name and you can log into it without having to remember the IP. If you’re on Xfinity, you can do:</p>
+<pre><code>avahi-publish -a -R router.local 10.0.0.1
+</code></pre>
+<p>You will be able to <code>ping router.local</code> and it will respond!</p>
+<h2 id="neat-trick-number-two"><a class="header" href="#neat-trick-number-two">Neat Trick Number Two</a></h2>
+<p>So pinging a router by name is nice and all, but not really <em>that</em> exciting.</p>
+<p>What you can do is combine the above with Kubernetes’ ingress resource definations to have multiple ingress’ on the same host without having to anything magical to DNS.</p>
+<h2 id="neat-trick-number-three"><a class="header" href="#neat-trick-number-three">Neat Trick Number Three</a></h2>
+<p>Again, neat-o and all, but now you have a terminal up and running hosting names and that’s just a waste of energy.  What if the terminal window closes or the machine resets? Then you have to manually execute the commands to get the network back online.</p>
+<p>Systemd to the rescue!</p>
+<pre><code>[Unit]
+Description=Avahi OwnCloud
+
+[Service]
+ExecStart=/usr/bin/avahi-publish -a -R pandora.local 10.0.0.238
+Restart=always
+
+[Install]
+WantedBy=default.target
+</code></pre>
+<p>Save the file in <code>/etc/systemd/system</code> ( i.e. /etc/systemd/system/avahi-pandora.service ).  Then treat it as any normal service.</p>
+<pre><code>sudo systemctl enable avahi-pandora
+sudo systemctl start avahi-pandora
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="systems-and-application-monitoring-with-prometheus"><a class="header" href="#systems-and-application-monitoring-with-prometheus">Systems and Application Monitoring with Prometheus</a></h1>
+<p>Figuring out what’s going on when something breaks can be difficult, so having the right tooling can make a big difference. Prometheus is one such tool. With proper tuning and configuration, it can even alert you before a failure occurs.</p>
+<p>It also makes pretty graphs—everyone loves good visualisations!</p>
+<h2 id="what-is-prometheus"><a class="header" href="#what-is-prometheus">What is Prometheus?</a></h2>
+<p>Prometheus is a free and open‑source monitoring solution that collects and records metrics from servers, containers, and applications. It provides a flexible query language (PromQL) and powerful visualisation tools, and includes an alerting mechanism that sends notifications when needed.</p>
+<h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
+<ul>
+<li>A machine capable of running Ubuntu 22.04 (or any other LTS release).</li>
+<li>Basic administrative knowledge and an account with <strong>sudo</strong> access on that machine.</li>
+</ul>
+<h2 id="installation-4"><a class="header" href="#installation-4">Installation</a></h2>
+<h3 id="update-the-system"><a class="header" href="#update-the-system">Update the system</a></h3>
+<pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt -y upgrade
+</code></pre>
+<h3 id="create-the-prometheus-user-account"><a class="header" href="#create-the-prometheus-user-account">Create the Prometheus user account</a></h3>
+<pre><code class="language-bash">sudo groupadd --system prometheus
+sudo useradd -s /sbin/nologin --system -g prometheus prometheus
+</code></pre>
+<h3 id="create-directories"><a class="header" href="#create-directories">Create directories</a></h3>
+<p>These directories will hold Prometheus’s configuration files and data store.</p>
+<pre><code class="language-bash">sudo mkdir /etc/prometheus
+sudo mkdir /var/lib/prometheus
+</code></pre>
+<h3 id="install-prometheus"><a class="header" href="#install-prometheus">Install Prometheus</a></h3>
+<blockquote>
+<p><strong>Note:</strong> The following steps install the latest LTS tarball of Prometheus (as of this writing). You can download a different release from the official site: https://prometheus.io/download/#prometheus.</p>
+</blockquote>
+<pre><code class="language-bash">wget https://github.com/prometheus/prometheus/releases/download/v3.5.0/prometheus-3.5.0.linux-amd64.tar.gz
+tar zvxf prometheus*.tar.gz
+cd prometheus*/
+sudo mv prometheus /usr/local/bin
+sudo mv promtool /usr/local/bin
+sudo chown prometheus:prometheus /usr/local/bin/prometheus
+sudo chown prometheus:prometheus /usr/local/bin/promtool
+sudo mv prometheus.yml /etc/prometheus
+sudo chown prometheus:prometheus /etc/prometheus
+sudo chown -R prometheus:prometheus /var/lib/prometheus
+
+cd ..
+rm -rf prom*
+</code></pre>
+<h3 id="configuring"><a class="header" href="#configuring">Configuring</a></h3>
+<p>The full configuration guide is available here: https://prometheus.io/docs/prometheus/latest/configuration/configuration/. It walks through almost every option, though the wording can be confusing. Below is a simple, real‑world example of a <code>prometheus.yml</code> file that demonstrates typical usage.</p>
+<pre><code class="language-yaml"># my global config
+global:
+  scrape_interval: 15s  # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s  # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+           - alertmanager:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=&lt;job_name&gt;` to any timeseries scraped from this config.
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+        labels:
+          groups: 'monitors'
+  - job_name: 'servers'
+    static_configs:
+      - targets:
+          - 'atlas.faultycloud.lan:9182'
+          - 'coeus.faultycloud.lan:9182'
+          - 'gaia.faultycloud.lan:9182'
+          - 'hyperion.faultycloud.lan:9182'
+        labels:
+          groups: 'win2022'
+  - job_name: 'gitlab'
+    static_configs:
+      - targets:
+          - '192.168.1.253:9090'
+        labels:
+          groups: 'development'
+</code></pre>
+<h3 id="run-at-startup"><a class="header" href="#run-at-startup">Run at Startup</a></h3>
+<p>Create a systemd service file at <code>/etc/systemd/system/prometheus.service</code> with the following content:</p>
+<pre><code class="language-ini">[Unit]
+Description=Prometheus
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=prometheus
+Group=prometheus
+Type=simple
+ExecStart=/usr/local/bin/prometheus \
+    --config.file /etc/prometheus/prometheus.yml \
+    --storage.tsdb.path /var/lib/prometheus/
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>Reload systemd, enable and start the service:</p>
+<pre><code class="language-bash">sudo systemctl daemon-reload
+sudo systemctl enable prometheus
+sudo systemctl start prometheus
+sudo systemctl status prometheus
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="systems-and-application-notifications-with-alert-manager"><a class="header" href="#systems-and-application-notifications-with-alert-manager">Systems and Application Notifications with Alert Manager</a></h1>
+<p>So you have Prometheus, the next step is AlertManager, which will notify you when an something goes awry.</p>
+<h2 id="alertmanager"><a class="header" href="#alertmanager">AlertManager?</a></h2>
+<p>The Alertmanager handles alerts sent by client applications such as the Prometheus server. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such as email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.</p>
+<h2 id="prerequisites-1"><a class="header" href="#prerequisites-1">Prerequisites</a></h2>
+<p>A machine that can run Ubuntu 22.04 ( or other LTS ).</p>
+<p>You should also have basic administrative knowledge and an account that has sudo access on the above box.</p>
+<h2 id="installation-5"><a class="header" href="#installation-5">Installation</a></h2>
+<h3 id="update-the-system-1"><a class="header" href="#update-the-system-1">Update the system</a></h3>
+<pre><code>sudo apt update &amp;&amp; sudo apt -y upgrade
+</code></pre>
+<h3 id="create-the-alertmanager-user-account"><a class="header" href="#create-the-alertmanager-user-account">Create the AlertManager User Account</a></h3>
+<pre><code>sudo groupadd --system alertmanager
+sudo useradd -s /sbin/nologin --system -g alertmanager alertmanager
+</code></pre>
+<h3 id="create-directories-1"><a class="header" href="#create-directories-1">Create Directories</a></h3>
+<p>These are for configuration files and libraries.</p>
+<pre><code>sudo mkdir /etc/alertmanager
+sudo mkdir /var/lib/alertmanager
+</code></pre>
+<h3 id="install-alertmanager"><a class="header" href="#install-alertmanager">Install AlertManager</a></h3>
+<p>Now for the fun part!</p>
+<pre><code>// https://prometheus.io/download/#alertmanager
+wget https://github.com/prometheus/alertmanager/releases/download/v0.28.1/alertmanager-0.28.1.linux-amd64.tar.gz
+tar zvxf alertmanager*.tar.gz
+cd alertmanager*/
+sudo mv alertmanager /usr/local/bin
+sudo mv amtool /usr/local/bin
+sudo chown alertmanager:alertmanager /usr/local/bin/alertmanager
+sudo chown alertmanager:alertmanager /usr/local/bin/amtool
+sudo chown alertmanager:alertmanager /var/lib/alertmanager
+
+sudo mv alertmanager.yml /etc/alertmanager
+
+cd ..
+rm -rf alert*
+</code></pre>
+<h3 id="run-at-startup-1"><a class="header" href="#run-at-startup-1">Run at Startup</a></h3>
+<pre><code>sudo nano /etc/systemd/system/alertmanager.service
+</code></pre>
+<p>with</p>
+<pre><code>[Unit]
+Description=AlertManager
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=alertmanager
+Group=alertmanager
+Type=simple
+ExecStart=/usr/local/bin/alertmanager \
+    --config.file /etc/alertmanager/alertmanager.yml \
+    --storage.path=/var/lib/alertmanager
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<pre><code>sudo systemctl daemon-reload
+sudo systemctl enable alertmanager
+sudo systemctl start alertmanager
+sudo systemctl status alertmanager
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="systems-monitoring-with-node-exporter"><a class="header" href="#systems-monitoring-with-node-exporter">Systems Monitoring with Node Exporter</a></h1>
+<p>Trying to figure out what is going on when something is <strong>broken</strong> can be hard, so it’s nice to have tooling to help with that.  Prometheus is one such tool.  With proper tuning and effort, it can warn you before something goes wrong.</p>
+<p>And it <strong>makes</strong> pretty graphs.  Everybody loves pretty graphs!</p>
+<h2 id="prometheus"><a class="header" href="#prometheus">Prometheus</a></h2>
+<p>Prometheus is a free and open‑source monitoring solution for collecting metrics, events, and alerts.  It records data from servers, containers, and applications.  In addition to a flexible query language (PromQL) and powerful visualization tools, it also provides an alerting mechanism that sends notifications when needed.</p>
+<h2 id="prerequisites-2"><a class="header" href="#prerequisites-2">Prerequisites</a></h2>
+<ul>
+<li>A machine running <strong>Ubuntu 24.04</strong> or another LTS release.</li>
+<li>Basic administrative knowledge and an account with sudo access on that machine.</li>
+</ul>
+<h2 id="installation-6"><a class="header" href="#installation-6">Installation</a></h2>
+<h3 id="update-the-system-2"><a class="header" href="#update-the-system-2">Update the system</a></h3>
+<pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt -y upgrade
+</code></pre>
+<h3 id="create-the-node-exporter-user-account"><a class="header" href="#create-the-node-exporter-user-account">Create the Node Exporter user account</a></h3>
+<pre><code class="language-bash">sudo groupadd --system nodeexporter
+sudo useradd -s /sbin/nologin --system -g nodeexporter nodeexporter
+</code></pre>
+<h3 id="create-directories-2"><a class="header" href="#create-directories-2">Create directories</a></h3>
+<p>These directories store configuration files and libraries.</p>
+<pre><code class="language-bash">sudo mkdir /var/lib/node_exporter
+</code></pre>
+<h3 id="install-node-exporter"><a class="header" href="#install-node-exporter">Install Node Exporter</a></h3>
+<p>Now for the fun part!  You can view the <strong>latest</strong> Node Exporter downloads and pick the one you need on the official page:
+<a href="https://prometheus.io/download/#node_exporter">Node Exporter download page</a>.</p>
+<pre><code class="language-bash">wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-amd64.tar.gz
+tar zvxf node_exporter*.tar.gz
+cd node_exporter*/
+sudo mv node_exporter /usr/local/bin
+sudo chown nodeexporter:nodeexporter /usr/local/bin/node_exporter
+sudo chown -R nodeexporter:nodeexporter /var/lib/node_exporter
+
+cd ..
+rm -rf node*
+</code></pre>
+<h3 id="run-at-startup-2"><a class="header" href="#run-at-startup-2">Run at startup</a></h3>
+<p>Create a systemd unit file for Node Exporter:</p>
+<pre><code class="language-bash">sudo nano /etc/systemd/system/node_exporter.service
+</code></pre>
+<p>Paste the following configuration:</p>
+<pre><code class="language-ini">[Unit]
+Description=Node Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=nodeexporter
+Group=nodeexporter
+Type=simple
+ExecStart=/usr/local/bin/node_exporter \
+    --web.listen-address=0.0.0.0:9182 \
+    --collector.textfile.directory=/var/lib/node_exporter
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>Enable and start the service:</p>
+<pre><code class="language-bash">sudo systemctl daemon-reload
+sudo systemctl enable node_exporter
+sudo systemctl start node_exporter
+sudo systemctl status node_exporter
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="cassandra-installation"><a href="#cassandra-installation" class="header">Cassandra Installation</a></h1>
+<h2 id="install-apache-cassandra"><a class="header" href="#install-apache-cassandra">Install Apache Cassandra</a></h2>
+<pre><code class="language-bash"># Install Java (Cassandra 4.x requires Java 11)
+sudo apt install -y openjdk-11-jdk-headless
+
+# Add the Cassandra repository and its key
+echo "deb [signed-by=/etc/apt/keyrings/apache-cassandra.asc] https://debian.cassandra.apache.org 41x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+sudo curl -o /etc/apt/keyrings/apache-cassandra.asc https://downloads.apache.org/cassandra/KEYS
+
+# Update package lists and install Cassandra
+sudo apt update &amp;&amp; sudo apt install -y cassandra
+
+# Reload systemd, enable, and start the Cassandra service
+sudo systemctl daemon-reload
+sudo systemctl enable cassandra
+sudo systemctl start cassandra
+
+# Verify the service status
+sudo systemctl status cassandra.service
+nodetool status
+</code></pre>
+<blockquote>
+<p><strong>Tip:</strong>
+After the first startup, Cassandra may take a minute or two to open all its ports.
+Use <code>nodetool status</code> to confirm that the node reports <code>UN</code> (Up/Normal).</p>
+</blockquote>
+<h2 id="firewall-setup"><a class="header" href="#firewall-setup">Firewall Setup</a></h2>
+<pre><code class="language-bash"># Port used by Cassandra for client communication (CQL)
+sudo ufw allow 9042/tcp
+
+# Inter‑node communication port (native transport)
+sudo ufw allow 7000/tcp
+
+# SSTable stream transfer port
+sudo ufw allow 7001/tcp
+
+# JMX port (remote management)
+sudo ufw allow 7199/tcp
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong>
+If you use SSL for inter‑node communication, you’ll also need to open port 7002/tcp.</p>
+</blockquote>
+<hr>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="https://cassandra.apache.org/doc/latest/">Apache Cassandra Official Documentation</a></li>
+<li><a href="https://debian.cassandra.apache.org/">Debian Package Repository for Cassandra</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="network-attached-storage"><a class="header" href="#network-attached-storage">Network Attached Storage</a></h1>
+<p>There are plenty of network‑attached storage solutions out there, both free and open source.
+But why would we want to build one from scratch?</p>
+<p>Understanding how these tools work gives you insight into their inner workings and opens the door to customisations that off‑the‑shelf solutions can’t provide.</p>
+<h2 id="starting-with-samba"><a class="header" href="#starting-with-samba">Starting with Samba</a></h2>
+<p>I prefer to run on Ubuntu, so I’m using the current LTS (24.04.3) for this guide.
+The server is named <strong>vault</strong>.</p>
+<p>First, update the system:</p>
+<pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt -y full-upgrade
+</code></pre>
+<p>Next, create the parent directories:</p>
+<pre><code class="language-bash">sudo mkdir -p /srv/{samba,nfs}
+</code></pre>
+<h3 id="install-samba"><a class="header" href="#install-samba">Install Samba</a></h3>
+<pre><code class="language-bash">sudo apt install -y samba
+</code></pre>
+<h3 id="create-shared-directories"><a class="header" href="#create-shared-directories">Create shared directories</a></h3>
+<pre><code class="language-bash">sudo mkdir -p /srv/samba/{public,ISOs}
+</code></pre>
+<h3 id="edit-the-configuration"><a class="header" href="#edit-the-configuration">Edit the configuration</a></h3>
+<p>Open the Samba configuration file:</p>
+<pre><code class="language-bash">sudo vi /etc/samba/smb.conf
+</code></pre>
+<p>Add the following sections (replace or append as appropriate):</p>
+<pre><code>[homes]
+  comment = Home Directory
+  browsable = no
+  read only = no
+  create mask = 0700
+  directory mask = 0700
+  valid users = %S
+
+[ISOs]
+  comment = ISO files
+  path = /srv/samba/ISOs
+  browseable = yes
+  read only = no
+  create mask = 0700
+  directory mask = 0700
+  guest ok = yes
+
+[public]
+  comment = Public Share
+  path = /srv/samba/public
+  browseable = yes
+  read only = no
+  create mask = 0766
+  directory mask = 0766
+  guest ok = yes
+</code></pre>
+<blockquote>
+<p><strong>Tip:</strong> Granting <code>guest ok = yes</code> allows unauthenticated access. Use it only for truly public data.</p>
+</blockquote>
+<h3 id="add-user-accounts"><a class="header" href="#add-user-accounts">Add user accounts</a></h3>
+<pre><code class="language-bash">sudo smbpasswd -a $USER
+</code></pre>
+<h3 id="restart-services"><a class="header" href="#restart-services">Restart services</a></h3>
+<p>Restart the Samba daemons whenever you add a share or create a new user:</p>
+<pre><code class="language-bash">sudo systemctl restart smbd nmbd
+</code></pre>
+<h3 id="open-the-firewall"><a class="header" href="#open-the-firewall">Open the firewall</a></h3>
+<pre><code class="language-bash">sudo ufw allow samba
+</code></pre>
+<h2 id="nfs-installation"><a class="header" href="#nfs-installation">NFS Installation</a></h2>
+<pre><code class="language-bash">sudo apt install -y nfs-kernel-server
+</code></pre>
+<h3 id="create-shared-directories-1"><a class="header" href="#create-shared-directories-1">Create shared directories</a></h3>
+<pre><code class="language-bash">sudo mkdir -p /srv/nfs/{common,k8s}
+</code></pre>
+<h3 id="setup-permissions"><a class="header" href="#setup-permissions">Setup permissions</a></h3>
+<pre><code class="language-bash">sudo chown -R nobody:nogroup /srv/nfs/
+sudo chmod -R 755 /srv/nfs/
+</code></pre>
+<h3 id="edit-the-nfs-export-list"><a class="header" href="#edit-the-nfs-export-list">Edit the NFS export list</a></h3>
+<p>Open <code>/etc/exports</code>:</p>
+<pre><code class="language-bash">sudo vi /etc/exports
+</code></pre>
+<p>Add the following lines (modify subnets as appropriate):</p>
+<pre><code>/srv/nfs/common 192.168.1.0/24(rw,sync,no_subtree_check,no_root_squash)
+/srv/nfs/k8s 10.0.0.0/26(rw,sync,no_subtree_check,no_root_squash)
+</code></pre>
+<h3 id="export-the-shares"><a class="header" href="#export-the-shares">Export the shares</a></h3>
+<pre><code class="language-bash">sudo exportfs -a
+</code></pre>
+<h3 id="restart-the-nfs-service"><a class="header" href="#restart-the-nfs-service">Restart the NFS service</a></h3>
+<pre><code class="language-bash">sudo systemctl restart nfs-kernel-server
+</code></pre>
+<h3 id="configure-firewall-rules"><a class="header" href="#configure-firewall-rules">Configure firewall rules</a></h3>
+<p>Adjust for your network.</p>
+<pre><code class="language-bash">sudo ufw allow from 192.168.1.0/24 to any port nfs
+sudo ufw allow from 10.0.0.0/26 to any port nfs
+</code></pre>
+<hr>
+<p><em>For more detailed information, refer to the <a href="https://www.samba.org/samba/docs/">Samba documentation</a> and the <a href="https://manpages.ubuntu.com/manpages/jammy/man5/exports.5.html">NFS manual pages</a>.</em></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="network-attached-storage--iscsi"><a class="header" href="#network-attached-storage--iscsi">Network Attached Storage – iSCSI</a></h1>
+<p>iSCSI is typically used when you need fast, block‑level storage for workloads such as databases. It isn’t usually something you’d attach to a consumer desktop.</p>
+<h2 id="starting-with-iscsi"><a class="header" href="#starting-with-iscsi">Starting with iSCSI</a></h2>
+<p>I prefer to run on Ubuntu, so I’m using the current LTS (24.04.3) for this guide. The server is named <strong>vault</strong>.</p>
+<p>First, update the system:</p>
+<pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt -y full-upgrade
+</code></pre>
+<p>Next, create the parent directories:</p>
+<pre><code class="language-bash">sudo mkdir -p /srv/iscsi
+</code></pre>
+<h3 id="install-the-iscsi-target"><a class="header" href="#install-the-iscsi-target">Install the iSCSI target</a></h3>
+<pre><code class="language-bash">sudo apt install -y targetcli-fb
+</code></pre>
+<h3 id="create-shared-image-files"><a class="header" href="#create-shared-image-files">Create shared image files</a></h3>
+<p>Create some backing files that can be used as targets. Optionally, you can use disk partitions or LVM volumes.</p>
+<pre><code class="language-bash">sudo dd if=/dev/zero of=/srv/iscsi/disk00.img bs=1 count=0 seek=50G # Creates a 10GB image file
+sudo dd if=/dev/zero of=/srv/iscsi/disk01.img bs=1 count=0 seek=50G # Creates a 50GB image file
+sudo dd if=/dev/zero of=/srv/iscsi/disk02.img bs=1 count=0 seek=50G # Creates a 50GB image file
+sudo dd if=/dev/zero of=/srv/iscsi/disk03.img bs=1 count=0 seek=50G # Creates a 50GB image file
+sudo dd if=/dev/zero of=/srv/iscsi/disk04.img bs=1 count=0 seek=50G # Creates a 50GB image file
+sudo dd if=/dev/zero of=/srv/iscsi/disk05.img bs=1 count=0 seek=50G # Creates a 50GB image file
+</code></pre>
+<p>The image files start out small and grow as data is written to them. Be careful not to over‑provision the system, as it becomes a single point of failure for anything that uses iSCSI.</p>
+<h3 id="mount-on-loopback-and-format-new-drives-optional"><a class="header" href="#mount-on-loopback-and-format-new-drives-optional">Mount on loopback and format new drives (optional)</a></h3>
+<pre><code class="language-bash">sudo losetup -f /srv/iscsi/disk00.img
+sudo losetup -a
+sudo mkfs.ext4 /dev/loopX   # replace X with the loop device returned by losetup -a
+sudo losetup -d /dev/loopX
+</code></pre>
+<p>Or format all of them in one shot:</p>
+<pre><code class="language-bash">for image in /srv/iscsi/*.img; do
+  sudo losetup -f "$image"
+  sudo mkfs.ext4 /dev/loop0
+  sudo losetup -d /dev/loop0
+done
+</code></pre>
+<h3 id="configure-the-iscsi-target-using-targetcli"><a class="header" href="#configure-the-iscsi-target-using-targetcli">Configure the iSCSI target using TargetCLI</a></h3>
+<pre><code class="language-bash">sudo targetcli
+</code></pre>
+<p>Inside the shell, follow the steps below to create a backstore from the disk images you created.</p>
+<pre><code class="language-bash">cd /backstores/fileio
+create disk00 /srv/iscsi/disk00.img
+create disk01 /srv/iscsi/disk01.img
+create disk02 /srv/iscsi/disk02.img
+create disk03 /srv/iscsi/disk03.img
+create disk04 /srv/iscsi/disk04.img
+create disk05 /srv/iscsi/disk05.img
+</code></pre>
+<p>Create the actual LUNs:</p>
+<pre><code class="language-bash">cd /iscsi
+create iqn.2025-11.com.example:storage
+cd iqn.2025-11.com.example:storage/tpg1/luns
+create /backstores/fileio/disk00
+create /backstores/fileio/disk01
+create /backstores/fileio/disk02
+create /backstores/fileio/disk03
+create /backstores/fileio/disk04
+create /backstores/fileio/disk05
+</code></pre>
+<p>To enable authentication:</p>
+<pre><code class="language-bash">cd ../
+set attribute generate_node_acls=1
+set attribute demo_mode_write_protect=0
+set attribute authentication=1
+set auth userid=your_username
+set auth password=your_secret_password
+</code></pre>
+<p>To restrict iSCSI to specific addresses:</p>
+<pre><code class="language-bash">cd iqn.2025-11.com.example:storage/tpg1/portals
+delete 0.0.0.0:3260
+create 10.0.0.5:3260
+</code></pre>
+<p>To save the configuration:</p>
+<pre><code class="language-bash">cd /
+saveconfig
+exit
+</code></pre>
+<h3 id="verification--validation"><a class="header" href="#verification--validation">Verification / validation</a></h3>
+<pre><code class="language-bash">sudo targetcli ls
+</code></pre>
+<h3 id="setup-firewall"><a class="header" href="#setup-firewall">Setup firewall</a></h3>
+<pre><code class="language-bash">sudo ufw allow 3260/tcp
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="n8n-the-hard-way"><a class="header" href="#n8n-the-hard-way">N8N the hard way</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="runbooks"><a class="header" href="#runbooks">Runbooks</a></h1>
+<p>Runbooks are a way of documenting procedural Information Technology information that is repetitive in nature.</p>
+<p>Most of the time, you see runbooks as a way of troubleshooting a problem, diagnosising an issue or a procedure.</p>
+<p>This is a collection of the runbooks that I have decided to document for my area.</p>
+<h2 id="table-of-contents"><a class="header" href="#table-of-contents">Table of Contents</a></h2>
+<ul>
+<li><a href="#create-user-for-postgresql">Create PostgreSQL Database and User</a></li>
+</ul>
+<h2 id="alerts"><a class="header" href="#alerts">Alerts</a></h2>
+<ul>
+<li><a href="runbooks/alerts/pending_apt_package_upgrades.html">Pending Apt Package Upgrades</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="create-user-for-postgresql"><a class="header" href="#create-user-for-postgresql">Create User for PostgreSQL</a></h1>
+<h2 id="overview-1"><a class="header" href="#overview-1">Overview</a></h2>
+<h2 id="pre-requistes-1"><a class="header" href="#pre-requistes-1">Pre-Requistes</a></h2>
+<ul>
+<li>Access to login into database server via ssh.</li>
+<li><code>sudo</code> access on database server</li>
+</ul>
+<h2 id="steps-1"><a class="header" href="#steps-1">Steps</a></h2>
+<ol>
+<li>Log into database server via SSH.</li>
+<li>Sudo into the <code>postgres</code> user and execute the <code>psql</code> command line tool.
+<ul>
+<li><code>sudo -u postgres psql</code></li>
+</ul>
+</li>
+<li>Create the user with and encrypted password:
+<ul>
+<li>We recommend using a long and complex password since the values will only be saved here and can be input into the target system at the same time.</li>
+<li>The user name should reflect the database that they are primarily accessing.</li>
+<li><code>CREATE USER db01 WITH ENCRYPTED PASSWORD 'R3@llyL0ngP@ssw0rd123456790';</code></li>
+</ul>
+</li>
+<li>Grant the new user dbcreate privileges:
+<ul>
+<li><code>ALTER USER db01 CREATEDB;</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="troubleshooting-1"><a class="header" href="#troubleshooting-1">Troubleshooting</a></h2>
+<ul>
+<li>If the target system can not log into the database after the database/user creation process, you can simply re-run the above steps to make sure to make sure that they are correct.</li>
+<li>If the user is present, but the password has been forgotten, you may reset the password as follows:
+<ul>
+<li><code>ALTER USER db01_user WITH ENCRYPTED PASSWORD '3^On9D4p59^4';</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="completion-and-verification-1"><a class="header" href="#completion-and-verification-1">Completion and Verification</a></h2>
+<p>You can log into the target database from <code>callisto.lan</code> to verify if everything is setup correctly</p>
+<pre><code>psql -h 'callisto.lan' -U 'db01' -d 'db01_prod'
+</code></pre>
+<p>It will prompt you for the password, which we have available and should provide.  If the login occurs, then the database/user/permissions should be okay.</p>
+<h2 id="contacts-1"><a class="header" href="#contacts-1">Contacts</a></h2>
+<p>Not Applicable</p>
+<h2 id="appendix-1"><a class="header" href="#appendix-1">Appendix</a></h2>
+<h3 id="changelog-1"><a class="header" href="#changelog-1">Changelog</a></h3>
+<pre><code>* 2023/04/06 - Created</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>

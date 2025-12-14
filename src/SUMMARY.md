@@ -15,6 +15,10 @@
     - [PostgreSQL](kube/cnpg.md)
     - [Redis](kube/redis-operator.md)
 
+# High Performance Computing
+- [Introduction](high_performance_computing/README.md)
+    - [Build SLURM](high_performance_computing/build_SLURM.md)
+
 # Linux
 - [Introduction](linux/README.md)
     - [RAID Setup](linux/raid_setup.md)
@@ -24,13 +28,9 @@
     - [AlertManager](linux/alertmanager.md)
     - [Node Exporter](linux/node_exporter.md)
     - [Cassandra Installation](linux/cassandra_installation.md)
-
-# The Hard Way
-- [Introduction](hard_way/README.md)
-    - [N8N the hard way](hard_way/n8n_install_with_postgresql.md)
-    - [Network Storage](hard_way/network_storage.md)
-    - [Network Storage - iSCSI](hard_way/network_storage_iscsi.md)
-
+    - [Network Storage](linux/network_storage.md)
+    - [Network Storage - iSCSI](linux/network_storage_iscsi.md)
+    - [N8N the hard way](linux/n8n_install_with_postgresql.md)
 
 # Runbooks
 - [Introduction](runbooks/README.md)
