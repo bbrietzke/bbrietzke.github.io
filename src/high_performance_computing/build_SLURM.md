@@ -51,15 +51,16 @@ This runbook covers building SLURM RPM packages from source on Alma Linux 9. The
 4. **Build RPM packages**
 
     This process typically takes 10-15 minutes depending on your system.
+
     ```bash
     rpmbuild --with slurmrestd --with pmix --with hdf5 -ta slurm-${SLURM_VERSION}.tar.bz2
     ```
 
 
 5. **Verify and locate built RPMs**
-```bash
+    ```bash
     ls -lh ~/rpmbuild/RPMS/x86_64/
-```
+    ```
 
     You should see RPMs including:
     - `slurm-*.rpm` - Core SLURM binaries
@@ -99,15 +100,8 @@ If `rpmbuild` fails with missing dependency errors:
 - Core slurm package: ~15-20 MB
 - Total RPMs: ~40-50 MB
 
-## Next Steps
-1. Distribute RPMs to cluster nodes
-2. Install appropriate packages on controller and compute nodes
-3. Configure Munge authentication
-4. Configure `/etc/slurm/slurm.conf`
-5. Start SLURM services
 
 ## Contacts
-[Add your contact information or team details]
 
 ## Appendix
 
