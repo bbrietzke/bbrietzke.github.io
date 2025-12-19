@@ -13,26 +13,19 @@ This runbook covers building SLURM RPM packages from source on Alma Linux 9. The
 
 ## Steps
 
-1. **Prepare RPM build environment**
-```bash
-    # Create RPM build directory structure
-    mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
-    echo '%_topdir %(echo $HOME)/rpmbuild' > ~/.rpmmacros
-```
-
-2. **Download SLURM source code**
+1. **Download SLURM source code**
 
     The latest version can be [found here](https://www.schedmd.com/download-slurm/).
-```bash
+    ```bash
     sudo dnf install -y wget
     
     # Set version variable for easy updates
     SLURM_VERSION="25.11.0"
     wget https://download.schedmd.com/slurm/slurm-${SLURM_VERSION}.tar.bz2
-```
+    ```
 
-3. **Install build dependencies**
-```bash
+1. **Install build dependencies**
+    ```bash
     # Enable EPEL and CodeReady Builder repositories
     sudo dnf install -y epel-release
     sudo dnf config-manager --set-enabled crb
@@ -46,9 +39,9 @@ This runbook covers building SLURM RPM packages from source on Alma Linux 9. The
         rrdtool-devel openssl openssl-devel libssh2-devel \
         hwloc hwloc-devel ncurses-devel man2html \
         libibmad libibumad http-parser-devel json-c-devel
-```
+    ```
 
-4. **Build RPM packages**
+1. **Build RPM packages**
 
     This process typically takes 10-15 minutes depending on your system.
 
@@ -57,7 +50,7 @@ This runbook covers building SLURM RPM packages from source on Alma Linux 9. The
     ```
 
 
-5. **Verify and locate built RPMs**
+1. **Verify and locate built RPMs**
     ```bash
     ls -lh ~/rpmbuild/RPMS/x86_64/
     ```

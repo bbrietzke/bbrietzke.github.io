@@ -15,9 +15,11 @@
     - [PostgreSQL](kube/cnpg.md)
     - [Redis](kube/redis-operator.md)
 
-# High Performance Computing
-- [Introduction](high_performance_computing/README.md)
-    - [Build SLURM](high_performance_computing/build_SLURM.md)
+<!-- # MicroK8s
+- [Introduction](microk8s/README.md)
+    - [Installation](microk8s/01_installation.md)
+    - [User Setup](microk8s/02_user.md)
+    - [Network Setup](microk8s/03_network.md) -->
 
 # Linux
 - [Introduction](linux/README.md)
@@ -30,7 +32,17 @@
     - [Cassandra Installation](linux/cassandra_installation.md)
     - [Network Storage](linux/network_storage.md)
     - [Network Storage - iSCSI](linux/network_storage_iscsi.md)
-    - [N8N the hard way](linux/n8n_install_with_postgresql.md)
+
+# High Performance Computing
+- [Introduction](high_performance_computing/README.md)
+    - [Build SLURM](high_performance_computing/build_SLURM.md)
+
+# Monitoring
+- [Introduction](monitoring/README.md)
+    - [Prometheus](monitoring/prometheus.md)
+    - [Node Exporter](monitoring/node-exporter.md)
+    - [Alert Manager](monitoring/alertmanager.md)
+    - [Grafana](monitoring/grafana.md)
 
 # Runbooks
 - [Introduction](runbooks/README.md)
