@@ -6,7 +6,8 @@ operator that will help setup a clustered PostgreSQL installation in Kubernetes
 ## Installation
 
 ```bash
-kubectl apply -f  https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.27/releases/cnpg-1.27.1.yaml
+kubectl apply --server-side -f \
+  https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.28/releases/cnpg-1.28.0.yaml
 ```
 
 ## The Actual Cluster

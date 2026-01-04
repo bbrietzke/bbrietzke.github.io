@@ -49,8 +49,8 @@ following as an example.
     After=network-online.target
 
     [Service]
-    User=nodeexporter
-    Group=nodeexporter
+    User=node_exporter
+    Group=node_exporter
     Type=simple
     ExecStart=/usr/local/bin/node_exporter \
         --web.listen-address=0.0.0.0:9100 \

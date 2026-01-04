@@ -15,11 +15,10 @@
     - [PostgreSQL](kube/cnpg.md)
     - [Redis](kube/redis-operator.md)
 
-<!-- # MicroK8s
+# MicroK8s
 - [Introduction](microk8s/README.md)
     - [Installation](microk8s/01_installation.md)
     - [User Setup](microk8s/02_user.md)
-    - [Network Setup](microk8s/03_network.md) -->
 
 # Linux
 - [Introduction](linux/README.md)
