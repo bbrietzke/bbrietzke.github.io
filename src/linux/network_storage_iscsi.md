@@ -128,3 +128,31 @@ sudo targetcli ls
 ```bash
 sudo ufw allow 3260/tcp
 ```
+
+### Bonus - Scripting targetcli
+
+```bash
+sudo targetcli "/backstores/fileio create disk00 /srv/iscsi/10/disk00.img"
+sudo targetcli "/backstores/fileio create disk01 /srv/iscsi/10/disk01.img"
+sudo targetcli "/backstores/fileio create disk02 /srv/iscsi/10/disk02.img"
+sudo targetcli "/backstores/fileio create disk03 /srv/iscsi/10/disk03.img"
+sudo targetcli "/backstores/fileio create disk04 /srv/iscsi/10/disk04.img"
+sudo targetcli "/backstores/fileio create disk05 /srv/iscsi/50/disk00.img"
+sudo targetcli "/backstores/fileio create disk06 /srv/iscsi/50/disk01.img"
+sudo targetcli "/backstores/fileio create disk07 /srv/iscsi/50/disk02.img"
+sudo targetcli "/backstores/fileio create disk08 /srv/iscsi/100/disk00.img"
+sudo targetcli "/backstores/fileio create disk09 /srv/iscsi/100/disk01.img"
+
+sudo targetcli "/iscsi create iqn.2026-01.io.faultycloud:storage"
+sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk00"
+sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk01"
+sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk02"
+sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk03"
+sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk04"
+sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk06"
+sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk07"
+sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk08"
+sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk09"
+
+sudo targetcli "saveconfig"
+```

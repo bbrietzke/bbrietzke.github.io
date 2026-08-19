@@ -63,7 +63,7 @@ sudo systemctl restart containerd
 ### Step Four: Kubernetes Runtime Installation
 This will install kubernetes 1.34 to be installed on the machine.  At the time of writing, it is the most current version.
 ```
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.34/deb/Release.key | sudo gpg  --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg && \
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.35/deb/Release.key | sudo gpg  --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg && \
 echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.34/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list && \
 sudo apt update && \
 sudo apt install -y kubelet kubeadm kubectl
@@ -96,7 +96,7 @@ kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 ### Step Eight: Container Networking
 In order for the node to become *ready*, it will need networking installed. For simple, one node installs I personally think Calico is perfectly reasonable. 
 ```
-kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/calico.yaml
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.31.3/manifests/tigera-operator.yaml
 ```
 
 It will take a little bit for the networking jitters to settle.

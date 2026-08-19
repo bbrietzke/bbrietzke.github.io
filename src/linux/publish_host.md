@@ -30,7 +30,7 @@ Systemd to the rescue!
 
 ```
 [Unit]
-Description=Avahi OwnCloud
+Description=Avahi for Pandora
 
 [Service]
 ExecStart=/usr/bin/avahi-publish -a -R pandora.local 10.0.0.238

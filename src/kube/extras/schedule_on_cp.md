@@ -4,6 +4,8 @@ I prefer that my controllers run on the control plane node.  It's usually underu
 and just looking for stuff to do.  Basically, you need to add:
 
 ```yaml
+spec:
+  template:
     spec:
       tolerations:
         - key: node-role.kubernetes.io/control-plane

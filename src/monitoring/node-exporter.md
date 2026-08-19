@@ -43,21 +43,21 @@ following as an example.
     > **NOTE:** This is an example systemd file for node exporter
 
     ```ini
-    [Unit]
-    Description=Node Exporter
-    Wants=network-online.target
-    After=network-online.target
+[Unit]
+Description=Node Exporter
+Wants=network-online.target
+After=network-online.target
 
-    [Service]
-    User=node_exporter
-    Group=node_exporter
-    Type=simple
-    ExecStart=/usr/local/bin/node_exporter \
-        --web.listen-address=0.0.0.0:9100 \
-        --collector.textfile.directory=/var/lib/node_exporter
+[Service]
+User=node_exporter
+Group=node_exporter
+Type=simple
+ExecStart=/usr/local/bin/node_exporter \
+    --web.listen-address=0.0.0.0:9100 \
+    --collector.textfile.directory=/var/lib/node_exporter
 
-    [Install]
-    WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
     ```
 
 1. Enable and start the node exporter service.
