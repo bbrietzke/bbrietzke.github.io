@@ -52,7 +52,7 @@ sudo mdadm --create --verbose /dev/md1 \
 Probably the best all‑around choice. It gives the best use of capacity and good performance.
 
 ```bash
-sudo mdadm --create --verbose /dev/md2 \
+sudo mdadm --create --verbose /dev/md0 \
   --level=raid5 --raid-devices=4 \
   /dev/sda /dev/sdb /dev/sdc /dev/sdd
 ```
@@ -76,12 +76,13 @@ sudo blkid /dev/md0
 Take the UUID and add the following line to `/etc/fstab` (adjust the mount point and options as needed):
 
 ```bash
-UUID=655d2d3e-ab31-49c7-9cc3-583ec81fd316 /srv ext4 defaults 0 0
+UUID=69f26dbf-0a08-4d3b-9a02-eb5c60a10d65 /srv ext4 defaults 0 0
 ```
 
 Then run:
 
 ```bash
+sudo systemctl daemon-reload
 sudo mount -a
 ```
 

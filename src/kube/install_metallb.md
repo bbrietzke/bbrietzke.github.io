@@ -19,7 +19,7 @@ kubectl apply -f - -n kube-system
 Then:
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.15.3/config/manifests/metallb-native.yaml
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.16.1/config/manifests/metallb-frr-k8s.yaml
 ```
 
 ## Configuration
@@ -34,7 +34,7 @@ metadata:
   namespace: metallb-system
 spec:
   addresses:
-  - 192.168.2.75-192.168.2.80
+  - 192.168.1.75-192.168.1.80
 ```
 
 ### Advertisers
@@ -48,13 +48,5 @@ metadata:
 spec:
   ipAddressPools:
   - primary-pool
----
-apiVersion: metallb.io/v1beta1
-kind: BGPAdvertisement
-metadata:
-  name: bgpadvert
-  namespace: metallb-system
-spec:
-  ipAddressPools:
-  - primary-pool
+
 ```

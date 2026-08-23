@@ -16,8 +16,8 @@ helm show values traefik/traefik > values.yaml
 ## Install
 
 ```bash
-kubectl create namespace traefik
-helm upgrade -i --namespace traefik -f values.yaml traefik traefik/traefik 
+kubectl apply --server-side -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.6.1/standard-install.yaml
+helm upgrade -i --namespace traefik -f values.yaml traefik traefik/traefik --create-namespace
 ```
 
 ## My Values File
@@ -37,4 +37,10 @@ tolerations:
 providers:
   kubernetesGateway:
     enabled: true
+ingressClass:
+  enabled: false
+  isDefaultClass: false
+api:
+  dashboard: false
+
 ```

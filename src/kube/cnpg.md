@@ -7,12 +7,12 @@ operator that will help setup a clustered PostgreSQL installation in Kubernetes
 
 ```bash
 kubectl apply --server-side -f \
-  https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.28/releases/cnpg-1.28.0.yaml
+  https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.30/releases/cnpg-1.30.0.yaml
 ```
 
 ## The Actual Cluster
 
-You will want to use a good and fast network attached storage to keep database performance high. I'm using iSCIS here.
+You will want to use a good and fast network attached storage to keep database performance high. I'm using iSCI here.
 
 ```bash
 kubectl create namespace db

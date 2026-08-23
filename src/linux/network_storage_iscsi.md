@@ -29,8 +29,8 @@ sudo apt install -y targetcli-fb
 Create some backing files that can be used as targets. Optionally, you can use disk partitions or LVM volumes.
 
 ```bash
-sudo dd if=/dev/zero of=/srv/iscsi/disk00.img bs=1 count=0 seek=50G # Creates a 10GB image file
-sudo dd if=/dev/zero of=/srv/iscsi/disk01.img bs=1 count=0 seek=50G # Creates a 50GB image file
+sudo dd if=/dev/zero of=/srv/iscsi/disk00.img bs=1 count=0 seek=10G # Creates a 10GB image file
+sudo dd if=/dev/zero of=/srv/iscsi/disk01.img bs=1 count=0 seek=10G # Creates a 10GB image file
 sudo dd if=/dev/zero of=/srv/iscsi/disk02.img bs=1 count=0 seek=50G # Creates a 50GB image file
 sudo dd if=/dev/zero of=/srv/iscsi/disk03.img bs=1 count=0 seek=50G # Creates a 50GB image file
 sudo dd if=/dev/zero of=/srv/iscsi/disk04.img bs=1 count=0 seek=50G # Creates a 50GB image file
@@ -53,8 +53,8 @@ Or format all of them in one shot:
 ```bash
 for image in /srv/iscsi/*.img; do
   sudo losetup -f "$image"
-  sudo mkfs.ext4 /dev/loop0
-  sudo losetup -d /dev/loop0
+  sudo mkfs.ext4 /dev/loop1
+  sudo losetup -d /dev/loop1
 done
 ```
 
@@ -132,16 +132,12 @@ sudo ufw allow 3260/tcp
 ### Bonus - Scripting targetcli
 
 ```bash
-sudo targetcli "/backstores/fileio create disk00 /srv/iscsi/10/disk00.img"
-sudo targetcli "/backstores/fileio create disk01 /srv/iscsi/10/disk01.img"
-sudo targetcli "/backstores/fileio create disk02 /srv/iscsi/10/disk02.img"
-sudo targetcli "/backstores/fileio create disk03 /srv/iscsi/10/disk03.img"
-sudo targetcli "/backstores/fileio create disk04 /srv/iscsi/10/disk04.img"
-sudo targetcli "/backstores/fileio create disk05 /srv/iscsi/50/disk00.img"
-sudo targetcli "/backstores/fileio create disk06 /srv/iscsi/50/disk01.img"
-sudo targetcli "/backstores/fileio create disk07 /srv/iscsi/50/disk02.img"
-sudo targetcli "/backstores/fileio create disk08 /srv/iscsi/100/disk00.img"
-sudo targetcli "/backstores/fileio create disk09 /srv/iscsi/100/disk01.img"
+sudo targetcli "/backstores/fileio create disk00 /srv/iscsi/disk00.img"
+sudo targetcli "/backstores/fileio create disk01 /srv/iscsi/disk01.img"
+sudo targetcli "/backstores/fileio create disk02 /srv/iscsi/disk02.img"
+sudo targetcli "/backstores/fileio create disk03 /srv/iscsi/disk03.img"
+sudo targetcli "/backstores/fileio create disk04 /srv/iscsi/disk04.img"
+sudo targetcli "/backstores/fileio create disk05 /srv/iscsi/disk05.img"
 
 sudo targetcli "/iscsi create iqn.2026-01.io.faultycloud:storage"
 sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk00"
@@ -149,10 +145,13 @@ sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /back
 sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk02"
 sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk03"
 sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk04"
-sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk06"
-sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk07"
-sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk08"
-sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk09"
+sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1/luns create /backstores/fileio/disk05"
+
+sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1 set attribute generate_node_acls=1"
+sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1 set attribute demo_mode_write_protect=0"
+sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1 set attribute authentication=1"
+sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1 set auth userid=your_username"
+sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1 set auth password=your_secret_password"
 
 sudo targetcli "saveconfig"
 ```

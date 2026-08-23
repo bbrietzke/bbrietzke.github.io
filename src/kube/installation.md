@@ -72,7 +72,7 @@ sudo apt install -y kubelet kubeadm kubectl
 ### Step Five: Kubeadm Execution
 Now for the part that we've all been waiting for! The prerequisites are in place so now it's time to get kubernetes up and running.
 ```
-sudo kubeadm init --apiserver-advertise-address=10.0.0.9 --pod-network-cidr=10.250.0.0/16 --service-cidr=172.16.0.0/24
+sudo kubeadm init --apiserver-advertise-address=192.168.1.230 --pod-network-cidr=10.250.0.0/16 --service-cidr=172.16.0.0/24
 ```
 
 This will take a little while to run.
@@ -95,8 +95,14 @@ kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 
 ### Step Eight: Container Networking
 In order for the node to become *ready*, it will need networking installed. For simple, one node installs I personally think Calico is perfectly reasonable. 
-```
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.31.3/manifests/tigera-operator.yaml
+
+```bash
+wget https://raw.githubusercontent.com/projectcalico/calico/v3.31.3/manifests/calico.yaml
+sed -i 's|# - name: CALICO_IPV4POOL_CIDR|- name: CALICO_IPV4POOL_CIDR|' calico.yaml
+sed -i 's|#   value: "192.168.0.0/16"|  value: "10.250.0.0/16"|' calico.yaml
+grep -A1 CALICO_IPV4POOL_CIDR calico.yaml
+
+kubectl apply -f calico.yaml
 ```
 
 It will take a little bit for the networking jitters to settle.

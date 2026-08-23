@@ -23,11 +23,11 @@ An example customized one looks like the following:
 ```yaml
 ---
 nfs:
-  server: 192.168.2.70
+  server: 192.168.1.228
   path: /srv/nfs/k8s
 storageClass:
   create: true
-  name: nfs-client
+  name: nfs
   defaultClass: true
 tolerations:
   - key: "node-role.kubernetes.io/control-plane"
@@ -52,6 +52,5 @@ resources:
 And of course, we have to provision:
 
 ```
-kubectl create namespace nfs-subdir
-helm upgrade -i -f values.yaml nfs nfs-subdir-external-provisioner/nfs-subdir-external-provisioner --namespace nfs-subdir
+helm upgrade -i -f values.yaml nfs nfs-subdir-external-provisioner/nfs-subdir-external-provisioner -n nfs-subdir --create-namespace
 ```
