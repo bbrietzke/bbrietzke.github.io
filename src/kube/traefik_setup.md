@@ -23,6 +23,7 @@ helm upgrade -i --namespace traefik -f values.yaml traefik traefik/traefik --cre
 ## My Values File
 
 ```yaml
+---
 affinity:
   nodeAffinity:
     requiredDuringSchedulingIgnoredDuringExecution:

@@ -12,6 +12,7 @@
     - [NFS Provisioner](kube/nfs_provisioner.md)
     - [Metrics Server](kube/metrics_server.md)
     - [Certificate Manager](kube/certmanager.md)
+    - [Rook-Ceph](kube/rook-ceph.md)
     - [PostgreSQL](kube/cnpg.md)
     - [Redis](kube/redis-operator.md)
 
@@ -31,6 +32,10 @@
     - [Cassandra Installation](linux/cassandra_installation.md)
     - [Network Storage](linux/network_storage.md)
     - [Network Storage - iSCSI](linux/network_storage_iscsi.md)
+
+# OpenWRT
+- [Introduction](openWRT/README.md)
+    - [Router Setup](openWRT/configure_as_router.md)
 
 # High Performance Computing
 - [Introduction](high_performance_computing/README.md)

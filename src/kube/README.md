@@ -14,6 +14,7 @@ the mess every couple of months and I usually forget something along the way!
 * [NFS Provisioner](nfs_provisioner.md)
 * [Metrics Server](metrics_server.md)
 * [Certificate Manager](certmanager.md)
+* [Rook-Ceph](rook-ceph.md)
 * [PostgreSQL](cnpg.md)
 * [Redis](redis-operator.md)
 

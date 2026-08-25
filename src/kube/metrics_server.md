@@ -3,8 +3,6 @@ it work is pretty simple, assuming you do it the insecure way.
 
 The correct way is more complicated, but also secure.
 
-
-
 ## Installing
 
 The code and instructions to install metrics server [can be found here](https://github.com/kubernetes-sigs/metrics-server).  Again, not repeating them here so they go stale.
@@ -20,6 +18,12 @@ You will need to go to each node and modify the kubelet config file and add a co
 
 ```bash
 sudo vi /var/lib/kubelet/config.yaml
+```
+
+or
+
+```bash
+echo "serverTLSBootstrap: true" | sudo tee -a /var/lib/kubelet/config.yaml
 ```
 
 You will then need to either restart the host machine or the kubelet service.

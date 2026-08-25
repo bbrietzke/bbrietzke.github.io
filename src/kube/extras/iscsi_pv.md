@@ -7,7 +7,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: iscsi-chap-secret
-  namespace: infra
+  namespace: default
 type: Opaque
 data:
   node.session.auth.username: dmF1bHQ=
@@ -107,7 +107,7 @@ metadata:
   name: volume04
 spec:
   capacity:
-    storage: 20G
+    storage: 50G
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
@@ -126,10 +126,10 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: volume04
+  name: volume05
 spec:
   capacity:
-    storage: 20G
+    storage: 50G
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
@@ -141,7 +141,6 @@ spec:
     fsType: ext4
     readOnly: false
     chapAuthDiscovery: true
-    chapAuthSession: true
     secretRef:
       name: iscsi-chap-secret
 ```

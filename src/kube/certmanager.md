@@ -56,6 +56,7 @@ I created self-signed certificates for my namespaces just because.
 Here is an example CRD:
 
 ```yaml
+---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
@@ -191,6 +192,7 @@ gateway:
 And then you need to issue a certificate:
 
 ```yaml
+---
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
