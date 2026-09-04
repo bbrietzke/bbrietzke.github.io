@@ -41,3 +41,55 @@ spec:
       memory: "4096Mi"
       cpu: 2000m
 ```
+
+To create a role and a database, you will need to also create a secret to hold the password for the role.
+
+```yaml
+---
+apiVersion: v1
+data:
+  username: YXBwLW5hbWU=
+  password: YWxsZWdvcnk=
+kind: Secret
+metadata:
+  name: pqsql-secret-application-name
+  labels:
+    cnpg.io/reload: "true"
+type: kubernetes.io/basic-auth
+```
+
+Now let's create a role and a database:
+
+```yaml
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: DatabaseRole
+metadata:
+  name: role-application-name
+spec:
+  cluster:
+    name: postgresql
+  name: app-name
+  comment: "Descriptive Application Name"
+  login: true
+  superuser: false
+  createdb: false
+  databaseRoleReclaimPolicy: retain
+  inRoles:
+    - pg_monitor
+  passwordSecret:
+    name: pqsql-secret-application-name
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: application-db
+spec:
+  name: application-name
+  owner: app-name
+  cluster:
+    name: postgresql
+  extensions:
+    - name: pgvector
+      ensure: present
+```
