@@ -38,6 +38,10 @@ tolerations:
 providers:
   kubernetesGateway:
     enabled: true
+  kubernetesIngress: 
+    enabled: false
+  kubernetesCRD:
+    enabled: false
 ingressClass:
   enabled: false
   isDefaultClass: false

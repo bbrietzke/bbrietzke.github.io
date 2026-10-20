@@ -32,6 +32,7 @@
     - [Cassandra Installation](linux/cassandra_installation.md)
     - [Network Storage](linux/network_storage.md)
     - [Network Storage - iSCSI](linux/network_storage_iscsi.md)
+    - [Asterisk PBX](linux/asterisk-pbx.md)
 
 # OpenWRT
 - [Introduction](openWRT/README.md)

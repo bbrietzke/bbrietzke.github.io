@@ -33,14 +33,14 @@ config:
   gatewayAPI:
     enabled: true
 prometheus:
-  enabled: false
+  enabled: true
   servicemonitor:
     enabled: false
 ```
 
 Then install with:
 
-```
+```bash
 helm upgrade -i -n cert-manager --create-namespace -f values.yaml cert-manager oci://quay.io/jetstack/charts/cert-manager
 ```
 
@@ -162,7 +162,7 @@ spec:
       tls:
         mode: Terminate
         certificateRefs:
-          - name: yourdomain-net-tls # <-- where the certifcate is saved at as a secret and as a certificate
+          - name: yourdomain-net-tls # <-- where the certificate is saved at as a secret and as a certificate
 ```
 
 ## Using with Traefik Gateway

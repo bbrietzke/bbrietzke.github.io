@@ -42,7 +42,7 @@ sudo mkdir /var/lib/prometheus
 > **Note:** The following steps install the latest LTS tarball of Prometheus (as of this writing). You can download a different release from the official site: https://prometheus.io/download/#prometheus.
 
 ```bash
-wget https://github.com/prometheus/prometheus/releases/download/v3.5.0/prometheus-3.5.0.linux-amd64.tar.gz
+wget https://github.com/prometheus/prometheus/releases/download/v3.14.0/prometheus-3.14.0.linux-amd64.tar.gz
 tar zvxf prometheus*.tar.gz
 cd prometheus*/
 sudo mv prometheus /usr/local/bin

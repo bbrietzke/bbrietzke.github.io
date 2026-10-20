@@ -7,7 +7,7 @@ operator that will help setup a clustered PostgreSQL installation in Kubernetes
 
 ```bash
 kubectl apply --server-side -f \
-  https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.30/releases/cnpg-1.30.0.yaml
+  https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.30/releases/cnpg-1.30.1.yaml
 ```
 
 ## The Actual Cluster
@@ -35,11 +35,11 @@ spec:
     storageClass: iscsi
   resources:
     requests:
-      memory: "1024Mi"
-      cpu: 500m
-    limits:
-      memory: "4096Mi"
+      memory: "2048Mi"
       cpu: 2000m
+    limits:
+      memory: "8192Mi"
+      cpu: 8000m
 ```
 
 To create a role and a database, you will need to also create a secret to hold the password for the role.
@@ -47,15 +47,15 @@ To create a role and a database, you will need to also create a secret to hold t
 ```yaml
 ---
 apiVersion: v1
-data:
-  username: YXBwLW5hbWU=
-  password: YWxsZWdvcnk=
 kind: Secret
+type: kubernetes.io/basic-auth
 metadata:
   name: pqsql-secret-application-name
   labels:
     cnpg.io/reload: "true"
-type: kubernetes.io/basic-auth
+data:
+  username: YXBwLW5hbWU=
+  password: YWxsZWdvcnk=
 ```
 
 Now let's create a role and a database:
@@ -90,6 +90,6 @@ spec:
   cluster:
     name: postgresql
   extensions:
-    - name: pgvector
+    - name: vector
       ensure: present
 ```

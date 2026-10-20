@@ -16,8 +16,7 @@ helm repo add redis-ot https://ot-container-kit.github.io/helm-charts/
 Install the operator.
 
 ```bash
-kubectl create namespace redis-system
-helm upgrade -i redis-operator redis-ot/redis-operator --namespace redis-system
+helm upgrade -i redis-operator redis-ot/redis-operator --namespace redis-system --create-namespace
 ```
 
 ## Create a Redis instance
@@ -35,7 +34,7 @@ metadata:
   namespace: default
 spec:
   kubernetesConfig:
-    image: quay.io/opstree/redis:latest
+    image: quay.io/opstree/redis:v7.15
     imagePullPolicy: IfNotPresent
   storage:
     volumeClaimTemplate:

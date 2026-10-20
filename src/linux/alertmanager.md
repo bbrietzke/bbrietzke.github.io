@@ -32,7 +32,7 @@ sudo mkdir /var/lib/alertmanager
 Now for the fun part!
 ```
 // https://prometheus.io/download/#alertmanager
-wget https://github.com/prometheus/alertmanager/releases/download/v0.28.1/alertmanager-0.28.1.linux-amd64.tar.gz
+wget https://github.com/prometheus/alertmanager/releases/download/v0.34.1/alertmanager-0.34.1.linux-amd64.tar.gz
 tar zvxf alertmanager*.tar.gz
 cd alertmanager*/
 sudo mv alertmanager /usr/local/bin
