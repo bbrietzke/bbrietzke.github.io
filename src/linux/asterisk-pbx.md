@@ -67,3 +67,18 @@ sudo systemctl start asterisk
 sudo systemctl status asterisk
 sudo asterisk -rvvv
 ```
+
+
+
+## Voice Agent Stuff
+
+```bash
+sudo apt update && sudo apt -y install python3.14-venv
+
+python3 venv .venv
+source .benv/bin/activate
+
+pip install faster-whisper websockets requests piper-tts numpy aiohttp
+
+
+```

@@ -20,10 +20,15 @@ kubectl create namespace db
 
 ```yaml
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: db
+---
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: postgresql
+  name: cluster00
   namespace: db
 spec:
   instances: 3
