@@ -36,15 +36,15 @@ spec:
     parameters:
       shared_buffers: "256MB"
   storage:
-    size: 50G
-    storageClass: iscsi
+    size: 200G
+    storageClass: iscsi-static
   resources:
     requests:
+      memory: "512Mi"
+      cpu: 500m
+    limits:
       memory: "2048Mi"
       cpu: 2000m
-    limits:
-      memory: "8192Mi"
-      cpu: 8000m
 ```
 
 To create a role and a database, you will need to also create a secret to hold the password for the role.
