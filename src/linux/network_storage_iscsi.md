@@ -153,5 +153,9 @@ sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1 set attribute aut
 sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1 set auth userid=your_username"
 sudo targetcli "/iscsi/iqn.2026-01.io.faultycloud:storage/tpg1 set auth password=your_secret_password"
 
+sudo targetcli "/iscsi set discovery_auth enable=1"
+sudo targetcli "/iscsi set discovery_auth userid=your_discovery_username"
+sudo targetcli "/iscsi set discovery_auth password=your_discovery_password"
+
 sudo targetcli "saveconfig"
 ```

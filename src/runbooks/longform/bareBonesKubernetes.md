@@ -10,7 +10,7 @@ The other network will be there for normal network traffic directed at and for r
 
 The worker machines also have a third network adapter in them.  In this scenerio they will not be used.
 
-The `k8s0` network will have the network of 192.168.245.0/26.  The `lan0` network will be 192.168.3.0/24.  The `lan0` network also hosts dhcp for the other machines on the network.
+The `k8s0` network will have the network of 192.168.254.0/26.  The `lan0` network will be 192.168.3.0/24.  The `lan0` network also hosts dhcp for the other machines on the network.
 
 DNS and the default gateway for the `lan0` network will be 192.168.3.1.  There will not be a DNS or a default gateway for the `k8s0` network.
 
@@ -28,15 +28,15 @@ The first three octets of the network have been identified above.  The only thin
 
 Each machine will have Ubuntu 26.04.1 installed on them.  
 
+There should be a check to make sure the host machines are fully updated with OS updates.  If they are not, then the scripts should update them will all operating system upgrades before proceeding.
+
 ## Storage
-Ubuntu only uses the first 100GB of disk space for the entire installation, which will leave about 300GB unused in the volume group. The nodes that are marked **true** for storage in the above chart will need to use this additional disk space be put into a logical volume called longhorn and mounted on `/var/lib/longhorn` and an entry made in */etc/fstab* to make sure the mount comes up each time the machine is rebooted.  Make sure to include error checking to see if that logical volume already exists.  If it does, it should be deleted and recreated.
-
-The nodes that are marked as *storage nodes* will also need huge pages turned on at a 2M size with 1024 pages in the **/etc/default/grub** file.
-
 Drives */dev/sdb* and */dev/sdc* should be scrubbed and wiped of all partitions and contents in preperation for the installations for those nodes that are marked with storage node equals true.
 
+The storage should be configured to use Rook.io/Cephfs on the emptied disks.  Please see these [prerequisites](https://rook.io/docs/rook/latest-release/Getting-Started/Prerequisites/prerequisites/).
+
 ## Kubernetes
-Kubernetes should be set to the lastest and greatest ( 1.37.01 ), kube-VIP should use 1.2.4 and calico should use 3.33.0.
+Kubernetes should be set to the lastest and greatest ( 1.37.1 ), kube-VIP should use 1.2.4 and calico should use 3.33.0.
 
 The control panel will run KUBEVIP to broadcast a virtual IP for the control plane.  This address will be `192.168.3.9`.  It will only broadcast this address on the `lan0` network.  KUBEVIP should only be used to broadcast the control plane ip address, not provide an IP for any load balancers
 
