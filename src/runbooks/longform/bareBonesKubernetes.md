@@ -26,17 +26,19 @@ The machines and IP addresses will be laid out as so:
 
 The first three octets of the network have been identified above.  The only thing that will vary between machines during installation will the the last octet and that octet will be the same on both network adapters for that machine to make host identification easy.  These addresses will be statically mapped in the netplan.
 
+if the `lan0` network matches the MAC address and IP, do not hard code the IP address through netplan, since that is configured through DHCP.  The `k8s0` network will need to be hard coded.  If the `lan0` network does not match, the scripts should stop processing to allow things to be fixed.
+
 Each machine will have Ubuntu 26.04.1 installed on them.  
 
-There should be a check to make sure the host machines are fully updated with OS updates.  If they are not, then the scripts should update them will all operating system upgrades before proceeding.
+There should be a check to make sure the host machines are fully updated with OS updates.  If they are not, then the scripts should update them with all operating system upgrades before proceeding.
 
 ## Storage
 Drives */dev/sdb* and */dev/sdc* should be scrubbed and wiped of all partitions and contents in preperation for the installations for those nodes that are marked with storage node equals true.
 
-The storage should be configured to use Rook.io/Cephfs on the emptied disks.  Please see these [prerequisites](https://rook.io/docs/rook/latest-release/Getting-Started/Prerequisites/prerequisites/).
+The storage should be configured to use Rook.io/Cephfs on the emptied disks.  Please see these [prerequisites](https://rook.io/docs/rook/latest-release/Getting-Started/Prerequisites/prerequisites/).  Do not includes scripts to install rook/ceph, that will be done later by hand.
 
 ## Kubernetes
-Kubernetes should be set to the lastest and greatest ( 1.37.1 ), kube-VIP should use 1.2.4 and calico should use 3.33.0.
+Kubernetes should be set to the lastest and greatest ( 1.37.2 ), kube-VIP should use 1.3.1 and calico should use 3.33.0.
 
 The control panel will run KUBEVIP to broadcast a virtual IP for the control plane.  This address will be `192.168.3.9`.  It will only broadcast this address on the `lan0` network.  KUBEVIP should only be used to broadcast the control plane ip address, not provide an IP for any load balancers
 
@@ -56,4 +58,4 @@ If the role is worker, it will need set it self up and then join the Kubernetes 
 
 Additional scripts are acceptable as long as the order of operations is provided in the README documentation.
 
-Documentation will need to be provided, including a summary of what will be happening, the order that the scripts will need to be run in
+Documentation will need to be provided, including a summary of what will be happening, the order that the scripts will need to be run in.
