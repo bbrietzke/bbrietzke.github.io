@@ -50,11 +50,15 @@ The preferred CNI is *Calico* and should be installed right after the control pl
 We do not need *whisker* or *goldmane* installed, so please leave those out.
 
 ## Specifics
-What is  needed is a number of scripts, one for each host that will set that node up as a kubernetes capable machine, setup the networking and configure the storage specifications if the node is a storage node.  
+What is needed is an Ansible playbook that will setup the cluster.  This include validating the network, configuring the storage specifics if the node is a storage node.
 
 If the role is control plane, then that node should automatically create a kubernetes cluster.  It will then need to automatically create a calico CNI networking topology with the correct CIDR blocks as dictated above.
 
-If the role is worker, it will need set it self up and then join the Kubernetes network that the control plane created.  
+If the role is worker, it will need set it self up and then join the Kubernetes network that the control plane created. 
+
+There should be a simple way to rollback the installation, removing Kubernetes from the machines in case of a reset.
+
+There should be a Makefile for executing the workflow.
 
 Additional scripts are acceptable as long as the order of operations is provided in the README documentation.
 

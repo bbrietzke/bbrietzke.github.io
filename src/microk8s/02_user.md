@@ -30,7 +30,7 @@ This runbook configures a non-root user for MicroK8s access and installs the nec
 
 1. Install ``k9s`` for a terminal-based UI to manage your cluster. You can check [the k9s download page](https://github.com/derailed/k9s/releases) for the latest version.
 ```bash
-    wget https://github.com/derailed/k9s/releases/download/v0.32.7/k9s_linux_amd64.deb
+    wget https://github.com/derailed/k9s/releases/download/v0.51.0/k9s_linux_amd64.deb
     sudo dpkg -i k9s_linux_amd64.deb
     rm k9s_linux_amd64.deb
 ```
@@ -132,3 +132,4 @@ echo 'complete -o default -F __start_kubectl k' >> ~/.zshrc
 
 ### Changelog
 * 2025/12/26 - Initial Version
+* 2026/11/21 - Updated `k9s` version

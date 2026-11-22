@@ -14,6 +14,7 @@ to setup.
 ## Steps
 1. Execute the ``snap`` command:
     ```bash
+    sudo apt install -y snapd
     sudo snap install microk8s --classic --channel=latest/stable
     ```
 
