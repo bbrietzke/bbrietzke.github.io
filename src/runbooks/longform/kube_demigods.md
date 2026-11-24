@@ -30,14 +30,17 @@ The cluster name will be **demigods**.  Please use this for all contexts and nam
 
 The version of Kubernetes to be installed is 1.37.2.
 
-There will need to be labels applied to each node.  The *topology.kubernetes.io/region* will need to be **HOME** and the *topology.kubernetes.io/zone* will need to be **DEMIGODS**.
+There will need to be labels applied to each node.  The *topology.kubernetes.io/region* will need to be **HOME** and the *topology.kubernetes.io/zone* will need to be **DEMIGODS**.  The *app.kubernetes.io/managed-by* for each node should have a value of **ansible**.
+
+## Versions
+Kubernetes should be set to the lastest and greatest ( 1.37.2 ), kube-VIP should use 1.3.1 and Cilium should use 1.20.5.
 
 ## Networking
-The overall pod network will be 10.253.0.0/23 with each host receiving a /26 network.  
+The overall pod network will be 10.254.4.0/22 with each node receiving a /26 network.  The service CIDR will be 172.16.2.0/23.
 
 There will be a *KUBE-VIP* installation on the control plane that will serve at 192.168.5.5. *Kube-VIP* should be installed at the lastest and greatest version of v1.3.1.
 
-The CNI installed should be *Calico* at version 3.33.0.  We will not need *Whisker* or *Goldmane* installed.
+The CNI installed should be *Cilium* at version 3.33.0.
 
 ## Storage
 Each device marked as a storage node has a drive at /dev/nvme0n1.  This device will need to scrubbed and wiped of all partitions in preparation for the installation of Rook/Ceph.  Each node will need the prerequistes for Rook/Ceph to be installed and readied.
